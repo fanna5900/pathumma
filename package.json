@@ -1,0 +1,17 @@
+{
+  "name": "nexora",
+  "version": "1.0.0",
+  "description": "NEXORA - Complete Full-Stack Education Platform",
+  "main": "server/src/index.ts",
+  "scripts": {
+    "dev": "npx concurrently -n \"SERVER,CLIENT\" -c \"emerald,cyan\" \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "build:client": "npm --prefix client run build",
+    "build:server": "npm --prefix server run build",
+    "seed": "npm --prefix server run seed"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
