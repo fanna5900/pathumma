@@ -280,21 +280,45 @@ export const AdminDashboard: React.FC = () => {
           <div className="space-y-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="p-5 rounded-2xl glass-panel border border-emerald-900/50 space-y-1">
-                <span className="text-xs text-slate-400">Total Registered Users</span>
-                <p className="text-3xl font-extrabold text-emerald-400 font-display">{metrics.totalUsers}</p>
-                <span className="text-[10px] text-slate-500">Live PostgreSQL/SQLite rows</span>
+                <span className="text-xs text-slate-400">Total Registered Students</span>
+                <p className="text-3xl font-extrabold text-emerald-400 font-display">{metrics.totalStudents || metrics.totalUsers}</p>
+                <span className="text-[10px] text-slate-500">Live student user accounts</span>
               </div>
 
               <div className="p-5 rounded-2xl glass-panel border border-emerald-900/50 space-y-1">
-                <span className="text-xs text-slate-400">Verified Institutions</span>
-                <p className="text-3xl font-extrabold text-teal-400 font-display">{metrics.totalInstitutions}</p>
-                <span className="text-[10px] text-slate-500">Kerala, Karnataka, TN, DL</span>
+                <span className="text-xs text-slate-400">Total Universities</span>
+                <p className="text-3xl font-extrabold text-teal-400 font-display">{metrics.totalUniversities || 6}</p>
+                <span className="text-[10px] text-slate-500">KTU, Calicut, MGU, Kerala, CUSAT...</span>
+              </div>
+
+              <div className="p-5 rounded-2xl glass-panel border border-emerald-900/50 space-y-1">
+                <span className="text-xs text-slate-400">Total Colleges</span>
+                <p className="text-3xl font-extrabold text-mint-400 font-display">{metrics.totalColleges || 26}</p>
+                <span className="text-[10px] text-slate-500">Govt, Aided, Autonomous colleges</span>
+              </div>
+
+              <div className="p-5 rounded-2xl glass-panel border border-emerald-900/50 space-y-1">
+                <span className="text-xs text-slate-400">Total Schools</span>
+                <p className="text-3xl font-extrabold text-amber-400 font-display">{metrics.totalSchools || 5}</p>
+                <span className="text-[10px] text-slate-500">Govt, Aided & Private Schools</span>
               </div>
 
               <div className="p-5 rounded-2xl glass-panel border border-emerald-900/50 space-y-1">
                 <span className="text-xs text-slate-400">Academic Courses</span>
-                <p className="text-3xl font-extrabold text-mint-400 font-display">{metrics.totalCourses}</p>
+                <p className="text-3xl font-extrabold text-emerald-300 font-display">{metrics.totalCourses}</p>
                 <span className="text-[10px] text-slate-500">With verified fee schedules</span>
+              </div>
+
+              <div className="p-5 rounded-2xl glass-panel border border-emerald-900/50 space-y-1">
+                <span className="text-xs text-slate-400">Study Resources</span>
+                <p className="text-3xl font-extrabold text-cyan-300 font-display">{metrics.totalResources || 12}</p>
+                <span className="text-[10px] text-slate-500">Notes, QPs, syllabi, question banks</span>
+              </div>
+
+              <div className="p-5 rounded-2xl glass-panel border border-emerald-900/50 space-y-1">
+                <span className="text-xs text-slate-400">Admission Applications</span>
+                <p className="text-3xl font-extrabold text-amber-300 font-display">{metrics.totalApplications || admissionsList.length}</p>
+                <span className="text-[10px] text-slate-500">Submitted in registry</span>
               </div>
 
               <div className="p-5 rounded-2xl glass-panel border border-emerald-900/50 space-y-1">

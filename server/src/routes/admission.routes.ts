@@ -149,9 +149,9 @@ router.post('/submit', async (req: Request, res: Response): Promise<void> => {
       notes,
     } = req.body;
 
-    // Validation
+    // Validation (supports Unicode and Malayalam letters)
     const trimmedName = (fullName || '').trim();
-    if (!trimmedName || !/^[A-Za-z]+(?: [A-Za-z]+)*$/.test(trimmedName)) {
+    if (!trimmedName || !/^[\p{L}\p{M}]+(?:[ .'-][\p{L}\p{M}.]+)*$/u.test(trimmedName)) {
       res.status(400).json({ success: false, message: 'Please enter a valid full name using letters only.' });
       return;
     }

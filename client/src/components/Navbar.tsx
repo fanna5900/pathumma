@@ -56,11 +56,12 @@ export const Navbar: React.FC = () => {
     }
   };
 
-  // 11 Navigation Destinations required by Section 4
+  // Navigation Destinations
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Universities', path: '/universities' },
     { name: 'Colleges', path: '/colleges' },
+    { name: 'Schools', path: '/schools' },
     { name: 'Courses', path: '/courses' },
     { name: 'Admissions', path: '/admission' },
     { name: 'Study Resources', path: '/study-resources' },

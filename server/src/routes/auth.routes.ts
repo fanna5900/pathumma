@@ -31,12 +31,12 @@ router.post('/register/student', async (req: Request, res: Response): Promise<vo
       return;
     }
 
-    // Specification: Full Name must contain English alphabetic letters and spaces only
+    // Specification: Full Name must contain letters and spaces only (supports Unicode & Malayalam)
     const trimmedName = fullName.trim();
-    if (!/^[A-Za-z]+(?: [A-Za-z]+)*$/.test(trimmedName)) {
+    if (!trimmedName || !/^[\p{L}\p{M}]+(?:[ .'-][\p{L}\p{M}.]+)*$/u.test(trimmedName)) {
       res.status(400).json({
         success: false,
-        message: 'Full name must contain English letters and spaces only (numbers and symbols are not allowed).',
+        message: 'Please enter a valid full name using letters only.',
       });
       return;
     }

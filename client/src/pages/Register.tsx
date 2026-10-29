@@ -63,12 +63,12 @@ export const Register: React.FC = () => {
   // Inline Field Errors State
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-  // Validation functions according to Section 10
+  // Validation functions according to Section 10 & Unicode/Malayalam support
   const validateFullName = (name: string): string => {
     const trimmed = name.trim();
     if (!trimmed) return 'Please enter a valid full name using letters only.';
-    // Specification: English letters and spaces only, no numbers or symbols
-    if (!/^[A-Za-z]+(?: [A-Za-z]+)*$/.test(trimmed)) {
+    // Specification: Alphabetic characters and spaces between name components (including Malayalam & Unicode letters)
+    if (!/^[\p{L}\p{M}]+(?:[ .'-][\p{L}\p{M}.]+)*$/u.test(trimmed)) {
       return 'Please enter a valid full name using letters only.';
     }
     return '';

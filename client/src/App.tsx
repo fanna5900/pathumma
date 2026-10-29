@@ -14,6 +14,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Universities from './pages/Universities';
 import Colleges from './pages/Colleges';
+import Schools from './pages/Schools';
 import CollegeDetail from './pages/CollegeDetail';
 import Courses from './pages/Courses';
 import Admission from './pages/Admission';
@@ -51,6 +52,8 @@ const AppLayout: React.FC = () => {
           <Route path="/signup" element={<Register />} />
           <Route path="/universities" element={<Universities />} />
           <Route path="/colleges" element={<Colleges />} />
+          <Route path="/schools" element={<Schools />} />
+          <Route path="/schools/:id" element={<CollegeDetail />} />
           <Route path="/colleges/:id" element={<CollegeDetail />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/admission" element={<Admission />} />

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   BookOpen,
   FileText,
@@ -14,6 +15,8 @@ import {
   Plus,
   X,
   FileCheck,
+  School,
+  GraduationCap,
 } from 'lucide-react';
 import api from '../services/api';
 import { LearningMaterial, Institution } from '../types';
@@ -21,11 +24,20 @@ import { useAuth } from '../context/AuthContext';
 
 export const StudyResources: React.FC = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [resources, setResources] = useState<LearningMaterial[]>([]);
   const [loading, setLoading] = useState(true);
   const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(new Set());
 
-  // Cascading Hierarchy Filters
+  // Domain Mode: All vs College/University vs School
+  const [educationDomain, setEducationDomain] = useState<'ALL' | 'COLLEGE' | 'SCHOOL'>('ALL');
+
+  // School Specific Filters
+  const [selectedSchoolBoard, setSelectedSchoolBoard] = useState('All');
+  const [selectedSchoolClass, setSelectedSchoolClass] = useState('All');
+  const [selectedSchoolStream, setSelectedSchoolStream] = useState('All');
+
+  // College Cascading Hierarchy Filters
   const [selectedUniversity, setSelectedUniversity] = useState('All');
   const [selectedCollege, setSelectedCollege] = useState('All');
   const [selectedCourse, setSelectedCourse] = useState('All');
@@ -65,8 +77,33 @@ export const StudyResources: React.FC = () => {
     { id: 'PREVIOUS_QUESTION_PAPER', label: 'Question Papers' },
     { id: 'SYLLABUS', label: 'Syllabus & Course Plans' },
     { id: 'QUESTION_BANK', label: 'Question Banks' },
+    { id: 'REVISION_NOTES', label: 'Revision Notes' },
+    { id: 'LAB_MANUAL', label: 'Lab Manuals' },
     { id: 'VIDEO_LESSON', label: 'Video Lessons' },
     { id: 'REFERENCE', label: 'Reference Materials' },
+  ];
+
+  const schoolBoards = [
+    'All',
+    'Kerala State Board (DHSE / SSLC)',
+    'Central Board of Secondary Education (CBSE)',
+    'Council for the Indian School Certificate Examinations (ICSE / ISC)',
+    'IHRD Technical Higher Secondary',
+  ];
+
+  const schoolClasses = [
+    'All',
+    'Class 10 (Secondary / SSLC)',
+    'Plus One (Class 11 Higher Secondary)',
+    'Plus Two (Class 12 Higher Secondary)',
+  ];
+
+  const schoolStreams = [
+    'All',
+    'Science (PCMB / PCMC)',
+    'Commerce (Accountancy & Business)',
+    'Humanities / Arts',
+    'Technical Physical Science',
   ];
 
   // Load institutions and courses once
@@ -118,15 +155,55 @@ export const StudyResources: React.FC = () => {
     setLoading(true);
     try {
       const params: any = {};
-      if (selectedUniversity !== 'All') params.university = selectedUniversity;
-      if (selectedCollege !== 'All') params.institutionId = selectedCollege;
-      if (selectedCourse !== 'All') params.courseId = selectedCourse;
+      if (educationDomain === 'COLLEGE') {
+        if (selectedUniversity !== 'All') params.university = selectedUniversity;
+        if (selectedCollege !== 'All') params.institutionId = selectedCollege;
+        if (selectedCourse !== 'All') params.courseId = selectedCourse;
+      }
       if (selectedCategory !== 'All') params.category = selectedCategory;
-      if (search.trim()) params.search = search.trim();
+
+      let effectiveSearch = search.trim();
+      if (educationDomain === 'SCHOOL') {
+        const schoolKeywords: string[] = [];
+        if (selectedSchoolClass !== 'All') {
+          if (selectedSchoolClass.includes('10')) schoolKeywords.push('Class 10');
+          if (selectedSchoolClass.includes('Plus One')) schoolKeywords.push('Plus One');
+          if (selectedSchoolClass.includes('Plus Two')) schoolKeywords.push('Plus Two');
+        }
+        if (selectedSchoolStream !== 'All') {
+          if (selectedSchoolStream.includes('Science')) schoolKeywords.push('Science');
+          if (selectedSchoolStream.includes('Commerce')) schoolKeywords.push('Commerce');
+          if (selectedSchoolStream.includes('Humanities')) schoolKeywords.push('Humanities');
+        }
+        if (schoolKeywords.length > 0) {
+          effectiveSearch = `${effectiveSearch} ${schoolKeywords.join(' ')}`.trim();
+        }
+      }
+
+      if (effectiveSearch) params.search = effectiveSearch;
 
       const res = await api.get('/resources', { params });
       if (res.data.success) {
-        setResources(res.data.data);
+        let list: LearningMaterial[] = res.data.data;
+
+        // In school mode, filter out college semester specific materials if needed
+        if (educationDomain === 'SCHOOL') {
+          list = list.filter((r) => {
+            const text = (r.title + ' ' + r.description).toLowerCase();
+            return (
+              text.includes('class 10') ||
+              text.includes('sslc') ||
+              text.includes('plus one') ||
+              text.includes('plus two') ||
+              text.includes('school') ||
+              text.includes('cbse') ||
+              text.includes('icse') ||
+              text.includes('dhse')
+            );
+          });
+        }
+
+        setResources(list);
       }
     } catch (err) {
       console.error('Fetch resources error:', err);
@@ -150,7 +227,16 @@ export const StudyResources: React.FC = () => {
 
   useEffect(() => {
     fetchResources();
-  }, [selectedUniversity, selectedCollege, selectedCourse, selectedCategory]);
+  }, [
+    educationDomain,
+    selectedSchoolBoard,
+    selectedSchoolClass,
+    selectedSchoolStream,
+    selectedUniversity,
+    selectedCollege,
+    selectedCourse,
+    selectedCategory,
+  ]);
 
   useEffect(() => {
     fetchBookmarks();
@@ -159,7 +245,8 @@ export const StudyResources: React.FC = () => {
   const toggleBookmark = async (id: string, e: React.MouseEvent) => {
     e.stopPropagation();
     if (!user) {
-      alert('Please log in to bookmark resources.');
+      alert('Please log in or sign up to bookmark resources.');
+      navigate('/login?redirect=/study-resources');
       return;
     }
 
@@ -176,7 +263,14 @@ export const StudyResources: React.FC = () => {
     }
   };
 
+  // Protected Access Handler for Download
   const handleDownload = async (item: LearningMaterial) => {
+    if (!user) {
+      alert('Please log in or sign up to access and download study resources.');
+      navigate('/login?redirect=/study-resources');
+      return;
+    }
+
     try {
       await api.get(`/resources/${item.id}`);
       // Increment local count
@@ -188,6 +282,16 @@ export const StudyResources: React.FC = () => {
     } catch (err) {
       window.open('/uploads/sample.pdf', '_blank');
     }
+  };
+
+  // Protected Access Handler for Preview
+  const handlePreview = (item: LearningMaterial) => {
+    if (!user) {
+      alert('Please log in or sign up to preview study resources.');
+      navigate('/login?redirect=/study-resources');
+      return;
+    }
+    setPreviewItem(item);
   };
 
   const handleUploadSubmit = async (e: React.FormEvent) => {
@@ -218,7 +322,7 @@ export const StudyResources: React.FC = () => {
               Study Resources & Notes Library
             </h1>
             <p className="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl">
-              Access verified lecture notes, university syllabi, end-semester question papers, and question banks structured by subject and semester.
+              Access verified lecture notes, university syllabi, end-semester question papers, and school question banks structured by education level, board, and subject.
             </p>
           </div>
 
@@ -233,12 +337,52 @@ export const StudyResources: React.FC = () => {
           )}
         </div>
 
+        {/* Education Domain Selector Tabs */}
+        <div className="flex flex-wrap gap-2 p-1.5 rounded-2xl bg-[#03241e] border border-emerald-900/60 max-w-2xl">
+          <button
+            onClick={() => setEducationDomain('ALL')}
+            className={`flex-1 min-w-[120px] py-2.5 px-4 rounded-xl text-xs font-bold transition-all ${
+              educationDomain === 'ALL'
+                ? 'bg-emerald-500 text-slate-950 shadow-glow-emerald'
+                : 'text-slate-300 hover:text-white'
+            }`}
+          >
+            All Academic Resources
+          </button>
+          <button
+            onClick={() => setEducationDomain('COLLEGE')}
+            className={`flex-1 min-w-[150px] py-2.5 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+              educationDomain === 'COLLEGE'
+                ? 'bg-emerald-500 text-slate-950 shadow-glow-emerald'
+                : 'text-slate-300 hover:text-white'
+            }`}
+          >
+            <GraduationCap className="w-4 h-4" />
+            <span>Colleges & Universities</span>
+          </button>
+          <button
+            onClick={() => setEducationDomain('SCHOOL')}
+            className={`flex-1 min-w-[150px] py-2.5 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+              educationDomain === 'SCHOOL'
+                ? 'bg-emerald-500 text-slate-950 shadow-glow-emerald'
+                : 'text-slate-300 hover:text-white'
+            }`}
+          >
+            <School className="w-4 h-4" />
+            <span>Schools (10th, +1, +2)</span>
+          </button>
+        </div>
+
         {/* Hierarchical Cascading Filter Bar */}
         <div className="rounded-3xl glass-panel bg-[#03241e]/90 border border-emerald-800/60 p-6 space-y-5">
           <div className="flex items-center justify-between border-b border-emerald-950 pb-3">
             <div className="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider">
               <Filter className="w-4 h-4" />
-              <span>Hierarchical Repository Filter</span>
+              <span>
+                {educationDomain === 'SCHOOL'
+                  ? 'School Academic Repository Filter'
+                  : 'Hierarchical Repository Filter'}
+              </span>
             </div>
             <button
               onClick={() => {
@@ -246,6 +390,9 @@ export const StudyResources: React.FC = () => {
                 setSelectedCollege('All');
                 setSelectedCourse('All');
                 setSelectedSemester('All');
+                setSelectedSchoolBoard('All');
+                setSelectedSchoolClass('All');
+                setSelectedSchoolStream('All');
                 setSelectedCategory('All');
                 setSearch('');
               }}
@@ -255,86 +402,142 @@ export const StudyResources: React.FC = () => {
             </button>
           </div>
 
-          {/* Cascading Dropdowns: University -> College -> Course -> Semester */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-            <div>
-              <label className="block text-slate-400 font-semibold mb-1.5 uppercase tracking-wider text-[11px]">
-                1. University Affiliation
-              </label>
-              <select
-                value={selectedUniversity}
-                onChange={(e) => {
-                  setSelectedUniversity(e.target.value);
-                  setSelectedCollege('All');
-                  setSelectedCourse('All');
-                }}
-                className="w-full px-3 py-2.5 rounded-xl bg-forest-900 border border-emerald-800/60 text-white focus:outline-none focus:border-emerald-500 text-xs"
-              >
-                {universities.map((u) => (
-                  <option key={u} value={u}>
-                    {u === 'All' ? 'All Kerala Universities' : u}
-                  </option>
-                ))}
-              </select>
-            </div>
+          {/* SCHOOL FILTERS (No Semester dropdown shown for schools) */}
+          {educationDomain === 'SCHOOL' ? (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs animate-fadeIn">
+              <div>
+                <label className="block text-slate-400 font-semibold mb-1.5 uppercase tracking-wider text-[11px]">
+                  1. Education Board
+                </label>
+                <select
+                  value={selectedSchoolBoard}
+                  onChange={(e) => setSelectedSchoolBoard(e.target.value)}
+                  className="w-full px-3 py-2.5 rounded-xl bg-forest-900 border border-emerald-800/60 text-white focus:outline-none focus:border-emerald-500 text-xs"
+                >
+                  {schoolBoards.map((b) => (
+                    <option key={b} value={b}>
+                      {b}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-            <div>
-              <label className="block text-slate-400 font-semibold mb-1.5 uppercase tracking-wider text-[11px]">
-                2. College / Institution
-              </label>
-              <select
-                value={selectedCollege}
-                onChange={(e) => {
-                  setSelectedCollege(e.target.value);
-                  setSelectedCourse('All');
-                }}
-                className="w-full px-3 py-2.5 rounded-xl bg-forest-900 border border-emerald-800/60 text-white focus:outline-none focus:border-emerald-500 text-xs"
-              >
-                <option value="All">All Affiliated Colleges</option>
-                {filteredColleges.map((col) => (
-                  <option key={col.id} value={col.id}>
-                    {col.name}
-                  </option>
-                ))}
-              </select>
-            </div>
+              <div>
+                <label className="block text-slate-400 font-semibold mb-1.5 uppercase tracking-wider text-[11px]">
+                  2. School Class / Level
+                </label>
+                <select
+                  value={selectedSchoolClass}
+                  onChange={(e) => setSelectedSchoolClass(e.target.value)}
+                  className="w-full px-3 py-2.5 rounded-xl bg-forest-900 border border-emerald-800/60 text-white focus:outline-none focus:border-emerald-500 text-xs"
+                >
+                  {schoolClasses.map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-            <div>
-              <label className="block text-slate-400 font-semibold mb-1.5 uppercase tracking-wider text-[11px]">
-                3. Degree Course / Program
-              </label>
-              <select
-                value={selectedCourse}
-                onChange={(e) => setSelectedCourse(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl bg-forest-900 border border-emerald-800/60 text-white focus:outline-none focus:border-emerald-500 text-xs"
-              >
-                <option value="All">All Courses / Branches</option>
-                {filteredCourses.map((c) => (
-                  <option key={c.id} value={c.id}>
-                    {c.title} ({c.code})
-                  </option>
-                ))}
-              </select>
+              <div>
+                <label className="block text-slate-400 font-semibold mb-1.5 uppercase tracking-wider text-[11px]">
+                  3. Stream / Focus
+                </label>
+                <select
+                  value={selectedSchoolStream}
+                  onChange={(e) => setSelectedSchoolStream(e.target.value)}
+                  className="w-full px-3 py-2.5 rounded-xl bg-forest-900 border border-emerald-800/60 text-white focus:outline-none focus:border-emerald-500 text-xs"
+                >
+                  {schoolStreams.map((s) => (
+                    <option key={s} value={s}>
+                      {s}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
+          ) : (
+            /* COLLEGE / ALL CASCADING FILTERS */
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs animate-fadeIn">
+              <div>
+                <label className="block text-slate-400 font-semibold mb-1.5 uppercase tracking-wider text-[11px]">
+                  1. University Affiliation
+                </label>
+                <select
+                  value={selectedUniversity}
+                  onChange={(e) => {
+                    setSelectedUniversity(e.target.value);
+                    setSelectedCollege('All');
+                    setSelectedCourse('All');
+                  }}
+                  className="w-full px-3 py-2.5 rounded-xl bg-forest-900 border border-emerald-800/60 text-white focus:outline-none focus:border-emerald-500 text-xs"
+                >
+                  {universities.map((u) => (
+                    <option key={u} value={u}>
+                      {u === 'All' ? 'All Kerala Universities' : u}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-            <div>
-              <label className="block text-slate-400 font-semibold mb-1.5 uppercase tracking-wider text-[11px]">
-                4. Academic Semester
-              </label>
-              <select
-                value={selectedSemester}
-                onChange={(e) => setSelectedSemester(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl bg-forest-900 border border-emerald-800/60 text-white focus:outline-none focus:border-emerald-500 text-xs"
-              >
-                <option value="All">All Semesters</option>
-                {[1, 2, 3, 4, 5, 6, 7, 8].map((s) => (
-                  <option key={s} value={`S${s}`}>
-                    Semester {s}
-                  </option>
-                ))}
-              </select>
+              <div>
+                <label className="block text-slate-400 font-semibold mb-1.5 uppercase tracking-wider text-[11px]">
+                  2. College / Institution
+                </label>
+                <select
+                  value={selectedCollege}
+                  onChange={(e) => {
+                    setSelectedCollege(e.target.value);
+                    setSelectedCourse('All');
+                  }}
+                  className="w-full px-3 py-2.5 rounded-xl bg-forest-900 border border-emerald-800/60 text-white focus:outline-none focus:border-emerald-500 text-xs"
+                >
+                  <option value="All">All Affiliated Colleges</option>
+                  {filteredColleges.map((col) => (
+                    <option key={col.id} value={col.id}>
+                      {col.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-slate-400 font-semibold mb-1.5 uppercase tracking-wider text-[11px]">
+                  3. Degree Course / Program
+                </label>
+                <select
+                  value={selectedCourse}
+                  onChange={(e) => setSelectedCourse(e.target.value)}
+                  className="w-full px-3 py-2.5 rounded-xl bg-forest-900 border border-emerald-800/60 text-white focus:outline-none focus:border-emerald-500 text-xs"
+                >
+                  <option value="All">All Courses / Branches</option>
+                  {filteredCourses.map((c) => (
+                    <option key={c.id} value={c.id}>
+                      {c.title} ({c.code})
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-slate-400 font-semibold mb-1.5 uppercase tracking-wider text-[11px]">
+                  4. Academic Semester
+                </label>
+                <select
+                  value={selectedSemester}
+                  onChange={(e) => setSelectedSemester(e.target.value)}
+                  className="w-full px-3 py-2.5 rounded-xl bg-forest-900 border border-emerald-800/60 text-white focus:outline-none focus:border-emerald-500 text-xs"
+                >
+                  <option value="All">All Semesters</option>
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((s) => (
+                    <option key={s} value={`S${s}`}>
+                      Semester {s}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Search bar & Category Pills */}
           <div className="flex flex-col md:flex-row gap-4 pt-3 border-t border-emerald-950">
@@ -345,7 +548,11 @@ export const StudyResources: React.FC = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && fetchResources()}
-                placeholder="Search by topic, subject code, or keyword (e.g. Data Structures, OS, Algorithms)..."
+                placeholder={
+                  educationDomain === 'SCHOOL'
+                    ? 'Search school notes (e.g. Class 10 Math, Plus Two Chemistry, Physics formulas)...'
+                    : 'Search by topic, subject code, or keyword (e.g. Data Structures, OS, Algorithms)...'
+                }
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-forest-900 border border-emerald-800/60 text-xs text-white focus:outline-none focus:border-emerald-500"
               />
             </div>
@@ -384,9 +591,9 @@ export const StudyResources: React.FC = () => {
         ) : resources.length === 0 ? (
           <div className="py-16 text-center glass-panel rounded-3xl p-8 max-w-lg mx-auto">
             <BookOpen className="w-12 h-12 text-slate-500 mx-auto mb-3" />
-            <h3 className="text-lg font-bold text-white">No study resources are available for this selection yet.</h3>
+            <h3 className="text-lg font-bold text-white">No study resources are available yet.</h3>
             <p className="text-xs text-slate-400 mt-1">
-              Try choosing another university, college, course, or semester to explore available study materials.
+              Try choosing another university, school, course, or semester to explore available study materials.
             </p>
           </div>
         ) : (
@@ -445,7 +652,7 @@ export const StudyResources: React.FC = () => {
 
                   <div className="pt-4 mt-4 border-t border-emerald-950 flex items-center gap-2">
                     <button
-                      onClick={() => setPreviewItem(resItem)}
+                      onClick={() => handlePreview(resItem)}
                       className="flex-1 py-2 rounded-xl bg-forest-900 hover:bg-forest-800 border border-emerald-800/60 text-xs font-semibold text-slate-200 flex items-center justify-center gap-1.5 transition-colors"
                     >
                       <Eye className="w-3.5 h-3.5 text-emerald-400" />
@@ -521,65 +728,72 @@ export const StudyResources: React.FC = () => {
         </div>
       )}
 
-      {/* Upload Modal (Faculty / University / Admin) */}
+      {/* Upload Modal for Faculty */}
       {uploadModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
           <div className="rounded-3xl glass-panel bg-[#02221b] border border-emerald-500/40 p-6 sm:p-8 max-w-lg w-full shadow-2xl space-y-5">
             <div className="flex items-center justify-between border-b border-emerald-900/60 pb-3">
-              <h3 className="text-lg font-bold text-white">Upload Academic Material</h3>
-              <button onClick={() => setUploadModalOpen(false)} className="text-slate-400 hover:text-white">
+              <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                <FileCheck className="w-5 h-5 text-emerald-400" />
+                <span>Upload Study Resource</span>
+              </h3>
+              <button
+                onClick={() => setUploadModalOpen(false)}
+                className="text-slate-400 hover:text-white"
+              >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <form onSubmit={handleUploadSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">
-                  Title *
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  Material Title
                 </label>
                 <input
                   type="text"
                   required
                   value={uploadForm.title}
                   onChange={(e) => setUploadForm({ ...uploadForm, title: e.target.value })}
-                  placeholder="e.g. End-Semester Algorithms Question Bank 2026"
-                  className="w-full px-3.5 py-2 rounded-xl bg-forest-900 border border-emerald-800 text-sm text-white focus:outline-none focus:border-emerald-500"
+                  placeholder="e.g. S4 Operating Systems Module 1 Notes"
+                  className="w-full px-4 py-2.5 rounded-xl bg-forest-900 border border-emerald-800/60 text-sm text-white focus:outline-none focus:border-emerald-500"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">
-                  Resource Category *
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  Resource Category
                 </label>
                 <select
                   value={uploadForm.resourceType}
                   onChange={(e) => setUploadForm({ ...uploadForm, resourceType: e.target.value })}
-                  className="w-full px-3.5 py-2 rounded-xl bg-forest-900 border border-emerald-800 text-sm text-white focus:outline-none focus:border-emerald-500"
+                  className="w-full px-4 py-2.5 rounded-xl bg-forest-900 border border-emerald-800/60 text-sm text-white focus:outline-none focus:border-emerald-500"
                 >
-                  <option value="NOTES">Study Notes</option>
-                  <option value="PREVIOUS_QUESTION_PAPER">Previous Question Paper</option>
+                  <option value="NOTES">Lecture Notes</option>
+                  <option value="PREVIOUS_QUESTION_PAPER">Question Paper</option>
                   <option value="SYLLABUS">Syllabus</option>
                   <option value="QUESTION_BANK">Question Bank</option>
-                  <option value="VIDEO_LESSON">Video Lesson Link</option>
+                  <option value="REVISION_NOTES">Revision Notes</option>
+                  <option value="LAB_MANUAL">Lab Manual</option>
                   <option value="REFERENCE">Reference Material</option>
                 </select>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">
-                  Detailed Description & Syllabus Modules Covered *
+                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  Detailed Description
                 </label>
                 <textarea
                   required
                   rows={3}
                   value={uploadForm.description}
                   onChange={(e) => setUploadForm({ ...uploadForm, description: e.target.value })}
-                  placeholder="Outline topics covered in this material..."
-                  className="w-full px-3.5 py-2 rounded-xl bg-forest-900 border border-emerald-800 text-sm text-white focus:outline-none focus:border-emerald-500"
-                />
+                  placeholder="Briefly describe the key topics covered in this document..."
+                  className="w-full px-4 py-2.5 rounded-xl bg-forest-900 border border-emerald-800/60 text-sm text-white focus:outline-none focus:border-emerald-500"
+                ></textarea>
               </div>
 
-              <div className="flex items-center justify-end gap-3 pt-2">
+              <div className="flex justify-end gap-3 pt-3">
                 <button
                   type="button"
                   onClick={() => setUploadModalOpen(false)}
@@ -591,7 +805,7 @@ export const StudyResources: React.FC = () => {
                   type="submit"
                   className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-glow-emerald"
                 >
-                  Publish Resource
+                  Publish Material
                 </button>
               </div>
             </form>

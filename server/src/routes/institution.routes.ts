@@ -11,11 +11,15 @@ router.get('/', async (req: Request, res: Response): Promise<void> => {
     const {
       state,
       city,
+      district,
       type,
       affiliation,
+      category,
+      course,
+      level,
       search,
       page = '1',
-      limit = '50',
+      limit = '100',
     } = req.query;
 
     const whereClause: any = {};
@@ -28,6 +32,14 @@ router.get('/', async (req: Request, res: Response): Promise<void> => {
       whereClause.city = { contains: city };
     }
 
+    if (district && typeof district === 'string' && district !== 'All') {
+      whereClause.OR = [
+        { city: { contains: district } },
+        { location: { contains: district } },
+        { address: { contains: district } },
+      ];
+    }
+
     if (type && typeof type === 'string' && type !== 'All') {
       whereClause.institutionType = { contains: type };
     }
@@ -36,13 +48,54 @@ router.get('/', async (req: Request, res: Response): Promise<void> => {
       whereClause.affiliation = { contains: affiliation };
     }
 
+    if (category && typeof category === 'string' && category !== 'All') {
+      if (category.toUpperCase() === 'SCHOOL') {
+        whereClause.institutionType = { contains: 'School' };
+      } else if (category.toUpperCase() === 'UNIVERSITY') {
+        whereClause.OR = [
+          { institutionType: { contains: 'University' } },
+          { institutionType: 'NIT' },
+          { institutionType: 'IIT' },
+        ];
+      } else if (category.toUpperCase() === 'COLLEGE') {
+        whereClause.AND = [
+          { institutionType: { not: { contains: 'School' } } },
+          { institutionType: { not: { contains: 'State University' } } },
+          { institutionType: { not: { contains: 'Central University' } } },
+        ];
+      }
+    }
+
+    if (course && typeof course === 'string' && course !== 'All') {
+      whereClause.courses = {
+        some: {
+          title: { contains: course },
+        },
+      };
+    }
+
+    if (level && typeof level === 'string' && level !== 'All') {
+      whereClause.courses = {
+        some: {
+          level: { equals: level },
+        },
+      };
+    }
+
     if (search && typeof search === 'string') {
-      whereClause.OR = [
+      const searchOR = [
         { name: { contains: search } },
         { location: { contains: search } },
         { state: { contains: search } },
         { city: { contains: search } },
+        { affiliation: { contains: search } },
       ];
+      if (whereClause.OR) {
+        whereClause.AND = [{ OR: whereClause.OR }, { OR: searchOR }];
+        delete whereClause.OR;
+      } else {
+        whereClause.OR = searchOR;
+      }
     }
 
     const take = parseInt(limit as string) || 20;

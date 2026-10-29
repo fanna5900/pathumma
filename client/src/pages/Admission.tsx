@@ -89,6 +89,8 @@ interface FormData {
   previousQualification: string;
 
   // Step 5: Preferences
+  institutionCategory: string;
+  educationLevel: string;
   targetUniversity: string;
   institutionId: string;
   institutionName: string;
@@ -101,8 +103,11 @@ interface FormData {
   // Step 6: Documents
   documents: {
     photo?: string;
+    birthCert?: string;
     sslc?: string;
+    plusOne?: string;
     plusTwo?: string;
+    degreeCert?: string;
     tc?: string;
     conduct?: string;
     entranceScorecard?: string;
@@ -169,6 +174,8 @@ export const Admission: React.FC = () => {
     ugPassingYear: '',
     ugCgpaOrPercentage: '',
     previousQualification: '',
+    institutionCategory: 'ALL',
+    educationLevel: 'All',
     targetUniversity: 'All',
     institutionId: searchParams.get('institutionId') || '',
     institutionName: '',
@@ -250,6 +257,21 @@ export const Admission: React.FC = () => {
   }, [formData.courseId, courses]);
 
   const filteredColleges = institutions.filter((inst) => {
+    // Filter by institution category if specified
+    if (formData.institutionCategory === 'SCHOOL') {
+      if (!inst.institutionType.toLowerCase().includes('school')) return false;
+    } else if (formData.institutionCategory === 'COLLEGE_UNIVERSITY') {
+      if (inst.institutionType.toLowerCase().includes('school')) return false;
+    }
+
+    // Filter by education level if specified
+    if (formData.educationLevel && formData.educationLevel !== 'All') {
+      const isSchoolLvl = ['CLASS_10', 'PLUS_ONE', 'PLUS_TWO'].includes(formData.educationLevel);
+      if (isSchoolLvl && !inst.institutionType.toLowerCase().includes('school')) return false;
+      if (!isSchoolLvl && inst.institutionType.toLowerCase().includes('school')) return false;
+    }
+
+    // Filter by target university if specified
     if (!formData.targetUniversity || formData.targetUniversity === 'All') return true;
     const aff = (inst.affiliation || '').toLowerCase();
     const uni = formData.targetUniversity.toLowerCase();
@@ -262,11 +284,81 @@ export const Admission: React.FC = () => {
     return true;
   });
 
-  const filteredCourses = formData.institutionId
-    ? courses.filter((c) => c.institutionId === formData.institutionId)
-    : courses;
+  const filteredCourses = courses.filter((c) => {
+    if (formData.institutionId && c.institutionId !== formData.institutionId) {
+      return false;
+    }
+    if (formData.educationLevel && formData.educationLevel !== 'All') {
+      const cLvl = (c.level || '').toUpperCase();
+      const edLvl = formData.educationLevel.toUpperCase();
+      if (edLvl === 'CLASS_10' && !cLvl.includes('10')) return false;
+      if (edLvl === 'PLUS_ONE' && !cLvl.includes('PLUS_ONE') && !cLvl.includes('11')) return false;
+      if (edLvl === 'PLUS_TWO' && !cLvl.includes('PLUS_TWO') && !cLvl.includes('12')) return false;
+      if (edLvl === 'DIPLOMA' && !cLvl.includes('DIPLOMA')) return false;
+      if (edLvl === 'UNDERGRADUATE' && !cLvl.includes('UNDERGRADUATE')) return false;
+      if (edLvl === 'POSTGRADUATE' && !cLvl.includes('POSTGRADUATE')) return false;
+    }
+    return true;
+  });
 
   const selectedCourseDetails = courses.find((c) => c.id === formData.courseId);
+
+  const getDynamicDocuments = () => {
+    const selectedCourse = courses.find((c) => c.id === formData.courseId);
+    const level = (selectedCourse?.level || formData.educationLevel || '').toUpperCase();
+
+    if (level.includes('CLASS_10') || level.includes('10')) {
+      return [
+        { key: 'photo', label: 'Passport Size Photograph', req: true, hint: 'Recent color photograph with white background' },
+        { key: 'birthCert', label: 'Birth Certificate / Age Proof', req: true, hint: 'Birth certificate issued by Municipal / Panchayat registrar' },
+        { key: 'tc', label: 'Transfer Certificate (TC)', req: false, hint: 'From previous recognized school' },
+        { key: 'conduct', label: 'Conduct Certificate', req: false, hint: 'Issued by Headmaster / Principal' },
+        { key: 'categoryCert', label: 'Community / Caste Certificate (if fee waiver claimed)', req: false, hint: 'Issued by Revenue Authority (Tahsildar)' },
+      ];
+    }
+
+    if (level.includes('PLUS_ONE') || level.includes('11')) {
+      return [
+        { key: 'photo', label: 'Passport Size Photograph', req: true, hint: 'Recent color photograph' },
+        { key: 'sslc', label: 'Class 10 / SSLC Certificate or Marksheet', req: true, hint: 'Original / Digilocker verified 10th grade marksheet' },
+        { key: 'tc', label: 'Transfer Certificate (TC)', req: true, hint: 'From Class 10 school' },
+        { key: 'conduct', label: 'Conduct Certificate', req: false, hint: 'Issued by school authority' },
+        { key: 'categoryCert', label: 'Caste / Concession Certificate', req: false, hint: 'Optional state fee concession proof' },
+      ];
+    }
+
+    if (level.includes('PLUS_TWO') || level.includes('12')) {
+      return [
+        { key: 'photo', label: 'Passport Size Photograph', req: true, hint: 'Recent color photograph' },
+        { key: 'sslc', label: 'Class 10 / SSLC Certificate', req: true, hint: 'Secondary school completion certificate' },
+        { key: 'plusOne', label: 'Plus One (Class 11) Statement of Marks', req: true, hint: 'First year higher secondary board marksheet' },
+        { key: 'tc', label: 'Transfer Certificate (TC)', req: false, hint: 'In case of school transfer' },
+        { key: 'conduct', label: 'Conduct Certificate', req: false, hint: 'Issued by institution' },
+      ];
+    }
+
+    if (level.includes('POSTGRADUATE')) {
+      return [
+        { key: 'photo', label: 'Passport Size Photograph', req: true, hint: 'Recent color photograph' },
+        { key: 'sslc', label: 'SSLC / 10th Certificate', req: true, hint: 'Proof of age and name' },
+        { key: 'plusTwo', label: 'Plus Two / 12th Certificate', req: true, hint: 'Higher secondary marksheet' },
+        { key: 'degreeCert', label: 'Qualifying Bachelor Degree Certificate / Consolidated Marksheet', req: true, hint: 'Provisional or Degree Certificate with all semester grade sheets' },
+        { key: 'entranceScorecard', label: 'GATE / CAT / CUSAT CAT Scorecard (where applicable)', req: false, hint: 'National / University entrance examination scorecard' },
+        { key: 'tc', label: 'Transfer / Migration Certificate', req: false, hint: 'From graduating university' },
+      ];
+    }
+
+    // Default: UNDERGRADUATE / DIPLOMA / Engineering
+    return [
+      { key: 'photo', label: 'Passport Size Photograph', req: true, hint: 'Recent color photograph' },
+      { key: 'sslc', label: 'SSLC / 10th Certificate', req: true, hint: 'Proof of date of birth and secondary examination' },
+      { key: 'plusTwo', label: 'Plus Two / 12th / Diploma Marksheet', req: true, hint: 'Qualifying higher secondary or diploma mark list' },
+      { key: 'entranceScorecard', label: 'State / National Entrance Scorecard (KEAM / JEE)', req: false, hint: 'KEAM or JEE Main scorecard if applying under merit quota' },
+      { key: 'tc', label: 'Transfer Certificate (TC)', req: false, hint: 'Issued by last attended institution' },
+      { key: 'conduct', label: 'Conduct Certificate', req: false, hint: 'Valid certificate of good conduct' },
+      { key: 'categoryCert', label: 'Category / Community Certificate', req: false, hint: 'Required for reservation and fee concessions' },
+    ];
+  };
 
   const steps = [
     { number: 1, title: 'Personal', icon: User },
@@ -319,7 +411,7 @@ export const Admission: React.FC = () => {
     if (step === 1) {
       if (!formData.fullName.trim()) {
         errors.fullName = 'Please enter a valid full name using letters only.';
-      } else if (!/^[A-Za-z]+(?: [A-Za-z]+)*$/.test(formData.fullName.trim())) {
+      } else if (!/^[\p{L}\p{M}]+(?:[ .'-][\p{L}\p{M}.]+)*$/u.test(formData.fullName.trim())) {
         errors.fullName = 'Please enter a valid full name using letters only.';
       }
 
@@ -375,7 +467,12 @@ export const Admission: React.FC = () => {
       if (!formData.institutionId) errors.institutionId = 'Please select your preferred Institution / University';
       if (!formData.courseId) errors.courseId = 'Please select your desired Course';
     } else if (step === 6) {
-      // Documents step - optional or recommend photo
+      const requiredDocs = getDynamicDocuments().filter((d) => d.req);
+      for (const doc of requiredDocs) {
+        if (!formData.documents[doc.key as keyof FormData['documents']]) {
+          errors[doc.key] = `${doc.label} is required for this program.`;
+        }
+      }
     } else if (step === 7) {
       if (!formData.declarationAgreed) {
         errors.declarationAgreed = 'You must review and agree to the formal truthfulness declaration';
@@ -1305,6 +1402,64 @@ export const Admission: React.FC = () => {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {/* Education Level Selector */}
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                    Education Level
+                  </label>
+                  <select
+                    name="educationLevel"
+                    value={formData.educationLevel}
+                    onChange={(e) => {
+                      const lvl = e.target.value;
+                      setFormData((prev) => ({
+                        ...prev,
+                        educationLevel: lvl,
+                        institutionId: '',
+                        institutionName: '',
+                        courseId: '',
+                        courseTitle: '',
+                      }));
+                    }}
+                    className="w-full px-4 py-3 rounded-xl bg-[#021814] border border-emerald-900/50 text-white focus:outline-none focus:border-emerald-400 transition-colors"
+                  >
+                    <option value="All">All Education Levels</option>
+                    <option value="CLASS_10">Class 10 (Secondary School)</option>
+                    <option value="PLUS_ONE">Higher Secondary – Plus One (Class 11)</option>
+                    <option value="PLUS_TWO">Higher Secondary – Plus Two (Class 12)</option>
+                    <option value="DIPLOMA">Polytechnic Diploma</option>
+                    <option value="UNDERGRADUATE">Undergraduate Degree (B.Tech, B.Sc, B.Com, BCA, BA)</option>
+                    <option value="POSTGRADUATE">Postgraduate Degree (M.Tech, M.Sc, MCA, MBA, MA)</option>
+                  </select>
+                </div>
+
+                {/* Institution Category Filter */}
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                    Institution Category
+                  </label>
+                  <select
+                    name="institutionCategory"
+                    value={formData.institutionCategory}
+                    onChange={(e) => {
+                      const cat = e.target.value;
+                      setFormData((prev) => ({
+                        ...prev,
+                        institutionCategory: cat,
+                        institutionId: '',
+                        institutionName: '',
+                        courseId: '',
+                        courseTitle: '',
+                      }));
+                    }}
+                    className="w-full px-4 py-3 rounded-xl bg-[#021814] border border-emerald-900/50 text-white focus:outline-none focus:border-emerald-400 transition-colors"
+                  >
+                    <option value="ALL">All Categories (Colleges & Schools)</option>
+                    <option value="COLLEGE_UNIVERSITY">Colleges & Universities</option>
+                    <option value="SCHOOL">Schools (Government, Aided, Private)</option>
+                  </select>
+                </div>
+
                 {/* 1. Target University */}
                 <div className="sm:col-span-2">
                   <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
@@ -1513,22 +1668,17 @@ export const Admission: React.FC = () => {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                  { key: 'photo', label: 'Passport Size Photograph', req: true },
-                  { key: 'sslc', label: 'SSLC / 10th Certificate', req: true },
-                  { key: 'plusTwo', label: 'Plus Two / 12th Marksheet', req: true },
-                  { key: 'tc', label: 'Transfer Certificate (TC)', req: false },
-                  { key: 'conduct', label: 'Conduct Certificate', req: false },
-                  { key: 'entranceScorecard', label: 'Entrance Scorecard (KEAM/JEE)', req: false },
-                  { key: 'categoryCert', label: 'Caste / Community Certificate', req: false },
-                ].map((doc) => {
+                {getDynamicDocuments().map((doc) => {
                   const docKey = doc.key as keyof FormData['documents'];
                   const uploadedName = formData.documents[docKey];
+                  const hasError = fieldErrors[doc.key];
 
                   return (
                     <div
                       key={doc.key}
-                      className="p-4 rounded-xl bg-[#021814]/70 border border-emerald-900/40 flex flex-col justify-between"
+                      className={`p-4 rounded-xl bg-[#021814]/70 border ${
+                        hasError ? 'border-red-500/80 bg-red-950/10' : 'border-emerald-900/40'
+                      } flex flex-col justify-between`}
                     >
                       <div>
                         <div className="flex items-center justify-between mb-1">
@@ -1541,9 +1691,15 @@ export const Admission: React.FC = () => {
                             </span>
                           )}
                         </div>
-                        <p className="text-[11px] text-slate-400 truncate mb-3">
+                        <p className="text-[11px] text-slate-400 mb-2">{doc.hint}</p>
+                        <p className="text-[11px] text-emerald-300 font-medium truncate mb-3">
                           {uploadedName || 'PDF or JPG/PNG (Up to 5MB)'}
                         </p>
+                        {hasError && (
+                          <p className="text-xs text-red-400 mb-2 flex items-center gap-1">
+                            <AlertCircle className="w-3.5 h-3.5" /> {hasError}
+                          </p>
+                        )}
                       </div>
 
                       <label className="cursor-pointer inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-forest-850 hover:bg-forest-800 border border-emerald-500/20 text-xs font-medium text-emerald-300 transition-colors">
