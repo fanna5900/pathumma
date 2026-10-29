@@ -272,15 +272,22 @@ export const StudyResources: React.FC = () => {
     }
 
     try {
-      await api.get(`/resources/${item.id}`);
+      // Trigger download using the backend download endpoint
+      const downloadUrl = `/api/resources/${item.id}/download`;
+      const link = document.createElement('a');
+      link.href = downloadUrl;
+      link.setAttribute('download', `${item.title.replace(/[^a-zA-Z0-9_-]/g, '_')}.pdf`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
       // Increment local count
       setResources((prev) =>
         prev.map((r) => (r.id === item.id ? { ...r, downloadCount: r.downloadCount + 1 } : r))
       );
-      // Trigger download
-      window.open(item.fileUrl || '/uploads/sample.pdf', '_blank');
     } catch (err) {
-      window.open('/uploads/sample.pdf', '_blank');
+      console.error('Download error:', err);
+      window.open(`/api/resources/${item.id}/download`, '_blank');
     }
   };
 
@@ -676,53 +683,55 @@ export const StudyResources: React.FC = () => {
 
       {/* PDF Document Preview Modal */}
       {previewItem && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="rounded-3xl glass-panel bg-[#02221b] border border-emerald-500/40 p-6 sm:p-8 max-w-2xl w-full shadow-2xl space-y-5">
-            <div className="flex items-start justify-between gap-4 border-b border-emerald-900/60 pb-3">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md">
+          <div className="rounded-3xl glass-panel bg-[#02221b] border border-emerald-500/40 p-5 sm:p-6 max-w-3xl w-full shadow-2xl space-y-4 max-h-[92vh] flex flex-col">
+            <div className="flex items-start justify-between gap-4 border-b border-emerald-900/60 pb-3 flex-shrink-0">
               <div>
                 <span className="text-[10px] font-bold px-2.5 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">
                   {previewItem.resourceType}
                 </span>
-                <h3 className="text-lg font-bold text-white mt-1">{previewItem.title}</h3>
+                <h3 className="text-base sm:text-lg font-bold text-white mt-1 line-clamp-1">{previewItem.title}</h3>
                 <p className="text-xs text-slate-400">{previewItem.sourceInfo}</p>
               </div>
               <button
                 onClick={() => setPreviewItem(null)}
-                className="text-slate-400 hover:text-white"
+                className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-emerald-950"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="p-6 rounded-2xl bg-forest-950/80 border border-emerald-900/60 space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed max-h-[50vh] overflow-y-auto">
-              <p className="font-semibold text-emerald-400 uppercase tracking-wider text-[11px]">
-                Document Summary & Prescribed Curriculum:
-              </p>
-              <p>{previewItem.description}</p>
-              <div className="p-4 rounded-xl bg-[#011410] border border-emerald-800/40 text-xs space-y-1.5 text-slate-300">
-                <p><span className="text-slate-400 font-semibold">Author / Uploader:</span> {previewItem.uploadedBy?.username || 'Verified Faculty Member'}</p>
-                <p><span className="text-slate-400 font-semibold">Verification Seal:</span> Approved by Departmental Academic Board</p>
-                <p><span className="text-slate-400 font-semibold">File Format:</span> {previewItem.fileType.toUpperCase()} ({previewItem.fileSize || 'Standard'})</p>
-              </div>
+            {/* Embedded Live PDF Document Viewer */}
+            <div className="rounded-2xl overflow-hidden border border-emerald-800/60 bg-[#011410] flex-1 min-h-[300px] max-h-[460px]">
+              <iframe
+                src={`/api/resources/${previewItem.id}/preview`}
+                className="w-full h-full border-none"
+                title={previewItem.title}
+              />
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-2">
-              <button
-                onClick={() => setPreviewItem(null)}
-                className="px-4 py-2 text-xs font-semibold text-slate-400 hover:text-white"
-              >
-                Close Preview
-              </button>
-              <button
-                onClick={() => {
-                  handleDownload(previewItem);
-                  setPreviewItem(null);
-                }}
-                className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-glow-emerald flex items-center gap-1.5"
-              >
-                <Download className="w-4 h-4" />
-                <span>Download Document</span>
-              </button>
+            <div className="p-3.5 rounded-xl bg-forest-950/80 border border-emerald-900/60 text-xs text-slate-300 flex flex-wrap items-center justify-between gap-2 flex-shrink-0">
+              <div className="space-y-0.5">
+                <p><span className="text-slate-400 font-semibold">Verification Seal:</span> Approved by State Academic Board</p>
+                <p><span className="text-slate-400 font-semibold">Format & Size:</span> {previewItem.fileType.toUpperCase()} ({previewItem.fileSize || 'Standard'}) • {previewItem.downloadCount} Downloads</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setPreviewItem(null)}
+                  className="px-3.5 py-2 text-xs font-semibold text-slate-400 hover:text-white"
+                >
+                  Close
+                </button>
+                <button
+                  onClick={() => {
+                    handleDownload(previewItem);
+                  }}
+                  className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-glow-emerald flex items-center gap-1.5"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Download PDF</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

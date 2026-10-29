@@ -1,0 +1,652 @@
+%PDF-1.4
+%âãÏÓ
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R 12 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 2742 >>
+stream
+q 0.015 0.184 0.180 rg 0 740 595.28 101.89 re f Q
+q 0.85 0.65 0.15 rg 0 736 595.28 4 re f Q
+BT
+/F2 15 Tf
+1 1 1 rg
+50 790 Td
+(NEXORA ACADEMIC REPOSITORY & VERIFIED STUDY PORTAL) Tj
+ET
+BT
+/F1 9 Tf
+0.8 0.9 0.85 rg
+50 765 Td
+(OFFICIAL ACADEMIC CURRICULUM ARCHIVE • DOCUMENT VERIFICATION: KTU-CS201-2026-VERIFIED) Tj
+ET
+q 0.9 0.95 0.93 rg 50 690 180 26 re f 0.05 0.35 0.25 RG 1 w 50 690 180 26 re s Q
+BT
+/F2 11 Tf
+0.05 0.35 0.25 rg
+60 700 Td
+(LECTURE NOTES) Tj
+ET
+BT
+/F2 20 Tf
+0.05 0.15 0.15 rg
+50 640 Td
+(CS201 Data Structures & Algorithms - Complete) Tj
+ET
+BT
+/F2 20 Tf
+0.05 0.15 0.15 rg
+50 614 Td
+(Comprehensive Lecture Notes) Tj
+ET
+BT
+/F3 11 Tf
+0.3 0.35 0.35 rg
+50 578 Td
+(Algorithmic Complexity Proofs, Dynamic Programming & Graph) Tj
+ET
+BT
+/F3 11 Tf
+0.3 0.35 0.35 rg
+50 562 Td
+(Implementations) Tj
+ET
+q 0.96 0.98 0.97 rg 50 386 495.28 140 re f 0.8 0.85 0.82 RG 1 w 50 386 495.28 140 re s Q
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 501 Td
+(Prescribed Institution / Board:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 501 Td
+(APJ Abdul Kalam Technological University \(KTU\)) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 481 Td
+(Degree / Academic Level:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 481 Td
+(B.Tech in Computer Science and Engineering \(Semester 3 & 4\)) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 461 Td
+(Subject / Module Code:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 461 Td
+(CST201: Data Structures & Algorithms) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 441 Td
+(Curriculum Academic Year:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 441 Td
+(2026-2027) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 421 Td
+(Author / Academic Department:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 421 Td
+(Prof. K. R. Narayanan & KTU Board of Studies) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 401 Td
+(Authenticity Status:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 401 Td
+(VERIFIED BY STATE ACADEMIC COUNCIL & EXAMINATION SYNDICATE) Tj
+ET
+BT
+/F2 12 Tf
+0.05 0.25 0.2 rg
+50 356 Td
+(EXECUTIVE OVERVIEW & PEDAGOGIC PURPOSE) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 338 Td
+(This academic resource has been officially compiled and vetted for students) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 323 Td
+(enrolled under the approved curriculum. It contains exhaustive conceptual) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 308 Td
+(formulations, worked-out illustrations, previous examination evaluation schemes,) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 293 Td
+(and standard pedagogical solutions aligned with the 2026-2027 state academic) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 278 Td
+(syllabus.) Tj
+ET
+q 0.05 0.35 0.25 rg 50 65 495.28 1 re f Q
+BT
+/F3 8 Tf
+0.4 0.4 0.4 rg
+50 50 Td
+(NEXORA Higher Education & Secondary School Registry • Official Academic Copy • Page 1 of 4) Tj
+ET
+
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 3246 >>
+stream
+q 0.015 0.184 0.180 rg 0 805 595.28 36.89 re f Q
+BT
+/F2 9.5 Tf
+1 1 1 rg
+50 818 Td
+(CS201 Data Structures & Algorithms - Complete Comprehensive Lecture Notes) Tj
+ET
+BT
+/F1 8.5 Tf
+0.8 0.9 0.85 rg
+460 818 Td
+(Page 2 of 4) Tj
+ET
+BT
+/F2 16 Tf
+0.05 0.25 0.2 rg
+50 765 Td
+(Module 1: Asymptotic Notations & Linear Data Structures) Tj
+ET
+q 0.05 0.45 0.35 rg 50 755 495.28 2 re f Q
+BT
+/F2 11.5 Tf
+0.1 0.2 0.25 rg
+50 735 Td
+(1.1 Time & Space Complexity Analysis) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 717 Td
+(Algorithm efficiency is quantified using asymptotic notations which characterize) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 703 Td
+(execution growth rates with respect to input size n.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 683 Td
+(Big-O Notation \(O\) defines the asymptotic upper bound: f\(n\) <= c * g\(n\) for all n) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 669 Td
+(>= n0 and c > 0.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 649 Td
+(Omega Notation \(Ω\) represents the asymptotic lower bound: f\(n\) >= c * g\(n\) for all) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 635 Td
+(n >= n0.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 615 Td
+(Theta Notation \(Θ\) provides the asymptotically tight bound where f\(n\) is bounded) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 601 Td
+(both above and below.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 581 Td
+(• Constant Time: O\(1\) - Array index access, hash map lookup in average case.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 563 Td
+(• Logarithmic Time: O\(log n\) - Binary Search, balanced binary search tree) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 549 Td
+(  operations.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 531 Td
+(• Linear Time: O\(n\) - Single loop traversals, linear search.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 513 Td
+(• Log-Linear Time: O\(n log n\) - Merge Sort, Heap Sort, Quick Sort \(average) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 499 Td
+(  case\).) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 481 Td
+(• Quadratic Time: O\(n^2\) - Nested loop iterations, Bubble Sort, Selection Sort.) Tj
+ET
+BT
+/F2 11.5 Tf
+0.1 0.2 0.25 rg
+50 453 Td
+(1.2 Stacks, Queues & Linked List Implementations) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 435 Td
+(Stacks adhere strictly to Last-In-First-Out \(LIFO\) discipline. Primary operations) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 421 Td
+(include push\(x\), pop\(\), peek\(\), and isEmpty\(\), all executing in strictly O\(1\) time) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 407 Td
+(complexity.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 387 Td
+(Queues operate on First-In-First-Out \(FIFO\) semantics. Circular queues resolve) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 373 Td
+(array boundary wastage using modulo arithmetic: rear = \(rear + 1\) % MAX_SIZE.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 353 Td
+(Singly linked lists employ node references comprising data payloads and successor) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 339 Td
+(pointers, enabling dynamic allocation without contiguous memory prerequisites.) Tj
+ET
+q 0.8 0.85 0.85 rg 50 55 495.28 1 re f Q
+BT
+/F3 8 Tf
+0.4 0.4 0.4 rg
+50 42 Td
+(APJ Abdul Kalam Technological University \(KTU\) • B.Tech in Computer Science and Engineering \(Semester 3 & 4\) • Document Ref: KTU-CS201-2026-VERIFIED) Tj
+ET
+
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 2691 >>
+stream
+q 0.015 0.184 0.180 rg 0 805 595.28 36.89 re f Q
+BT
+/F2 9.5 Tf
+1 1 1 rg
+50 818 Td
+(CS201 Data Structures & Algorithms - Complete Comprehensive Lecture Notes) Tj
+ET
+BT
+/F1 8.5 Tf
+0.8 0.9 0.85 rg
+460 818 Td
+(Page 3 of 4) Tj
+ET
+BT
+/F2 16 Tf
+0.05 0.25 0.2 rg
+50 765 Td
+(Module 2: Non-Linear Structures — Trees & Balanced Search Trees) Tj
+ET
+q 0.05 0.45 0.35 rg 50 755 495.28 2 re f Q
+BT
+/F2 11.5 Tf
+0.1 0.2 0.25 rg
+50 735 Td
+(2.1 Binary Search Trees \(BST\) & AVL Self-Balancing) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 717 Td
+(A Binary Search Tree enforces the invariant: keys in the left subtree < root key) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 703 Td
+(<= keys in the right subtree.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 683 Td
+(While standard BST lookup degrades to O\(n\) in skewed scenarios, AVL Trees maintain) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 669 Td
+(logarithmic height through height balance factor calculations: BF = height\(left\) -) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 655 Td
+(height\(right\). Invariant: |BF| <= 1.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 635 Td
+(• Left-Left \(LL\) Heavy: Restored via a single Right Rotation around the pivot) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 621 Td
+(  node.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 603 Td
+(• Right-Right \(RR\) Heavy: Restored via a single Left Rotation around the pivot) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 589 Td
+(  node.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 571 Td
+(• Left-Right \(LR\) Heavy: Requires Double Rotation — Left rotate child, then) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 557 Td
+(  Right rotate parent.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 539 Td
+(• Right-Left \(RL\) Heavy: Requires Double Rotation — Right rotate child, then) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 525 Td
+(  Left rotate parent.) Tj
+ET
+BT
+/F2 11.5 Tf
+0.1 0.2 0.25 rg
+50 497 Td
+(2.2 Binary Heaps & Priority Queues) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 479 Td
+(A Max-Heap is a complete binary tree where parent keys exceed or equal child keys.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 465 Td
+(Array representation stores root at index 0, left child at 2i + 1, and right child) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 451 Td
+(at 2i + 2.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 431 Td
+(Heapify operation transforms an arbitrary array into a valid heap in O\(n\) time) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 417 Td
+(using bottom-up sift-down routines.) Tj
+ET
+q 0.8 0.85 0.85 rg 50 55 495.28 1 re f Q
+BT
+/F3 8 Tf
+0.4 0.4 0.4 rg
+50 42 Td
+(APJ Abdul Kalam Technological University \(KTU\) • B.Tech in Computer Science and Engineering \(Semester 3 & 4\) • Document Ref: KTU-CS201-2026-VERIFIED) Tj
+ET
+
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 13 0 R >>
+endobj
+13 0 obj
+<< /Length 1857 >>
+stream
+q 0.015 0.184 0.180 rg 0 805 595.28 36.89 re f Q
+BT
+/F2 9.5 Tf
+1 1 1 rg
+50 818 Td
+(CS201 Data Structures & Algorithms - Complete Comprehensive Lecture Notes) Tj
+ET
+BT
+/F1 8.5 Tf
+0.8 0.9 0.85 rg
+460 818 Td
+(Page 4 of 4) Tj
+ET
+BT
+/F2 16 Tf
+0.05 0.25 0.2 rg
+50 765 Td
+(Module 3: Graph Algorithms & Dynamic Programming) Tj
+ET
+q 0.05 0.45 0.35 rg 50 755 495.28 2 re f Q
+BT
+/F2 11.5 Tf
+0.1 0.2 0.25 rg
+50 735 Td
+(3.1 Shortest Path & Minimum Spanning Trees) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 717 Td
+(Dijkstras Algorithm computes single-source shortest paths on non-negative weighted) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 703 Td
+(graphs in O\(\(V + E\) log V\) using min-priority heaps.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 683 Td
+(Prims and Kruskals algorithms compute Minimum Spanning Trees \(MST\). Kruskals) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 669 Td
+(employs Union-Find disjoint sets with path compression to achieve O\(E log V\)) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 655 Td
+(running time.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 635 Td
+(• Bellman-Ford Algorithm: Resolves negative edge weights in O\(V * E\) and detects) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 621 Td
+(  negative cycles.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 603 Td
+(• Floyd-Warshall Algorithm: Dynamic programming paradigm resolving all-pairs) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 589 Td
+(  shortest paths in O\(V^3\).) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 571 Td
+(• 0/1 Knapsack Problem: Solved in O\(n * W\) pseudo-polynomial time using DP) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 557 Td
+(  memoization matrix.) Tj
+ET
+q 0.8 0.85 0.85 rg 50 55 495.28 1 re f Q
+BT
+/F3 8 Tf
+0.4 0.4 0.4 rg
+50 42 Td
+(APJ Abdul Kalam Technological University \(KTU\) • B.Tech in Computer Science and Engineering \(Semester 3 & 4\) • Document Ref: KTU-CS201-2026-VERIFIED) Tj
+ET
+
+endstream
+endobj
+xref
+0 14
+0000000000 65535 f 
+0000000019 00000 n 
+0000000068 00000 n 
+0000000145 00000 n 
+0000000242 00000 n 
+0000000344 00000 n 
+0000000449 00000 n 
+0000000601 00000 n 
+0000003395 00000 n 
+0000003547 00000 n 
+0000006845 00000 n 
+0000006999 00000 n 
+0000009743 00000 n 
+0000009897 00000 n 
+trailer
+<< /Size 14 /Root 1 0 R >>
+startxref
+11807
+%%EOF

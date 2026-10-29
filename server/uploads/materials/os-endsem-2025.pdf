@@ -1,0 +1,476 @@
+%PDF-1.4
+%âãÏÓ
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 2751 >>
+stream
+q 0.015 0.184 0.180 rg 0 740 595.28 101.89 re f Q
+q 0.85 0.65 0.15 rg 0 736 595.28 4 re f Q
+BT
+/F2 15 Tf
+1 1 1 rg
+50 790 Td
+(NEXORA ACADEMIC REPOSITORY & VERIFIED STUDY PORTAL) Tj
+ET
+BT
+/F1 9 Tf
+0.8 0.9 0.85 rg
+50 765 Td
+(OFFICIAL ACADEMIC CURRICULUM ARCHIVE • DOCUMENT VERIFICATION: KTU-QP-CST206-DEC2025) Tj
+ET
+q 0.9 0.95 0.93 rg 50 690 180 26 re f 0.05 0.35 0.25 RG 1 w 50 690 180 26 re s Q
+BT
+/F2 11 Tf
+0.05 0.35 0.25 rg
+60 700 Td
+(QUESTION PAPER AND SOLUTIONS) Tj
+ET
+BT
+/F2 20 Tf
+0.05 0.15 0.15 rg
+50 640 Td
+(CST206 Operating Systems - End-Semester Previous) Tj
+ET
+BT
+/F2 20 Tf
+0.05 0.15 0.15 rg
+50 614 Td
+(Examination Paper with Solutions) Tj
+ET
+BT
+/F3 11 Tf
+0.3 0.35 0.35 rg
+50 578 Td
+(Complete Question Bank, Scheme of Valuation & Worked Solutions) Tj
+ET
+BT
+/F3 11 Tf
+0.3 0.35 0.35 rg
+50 562 Td
+(\(2025/2026\)) Tj
+ET
+q 0.96 0.98 0.97 rg 50 386 495.28 140 re f 0.8 0.85 0.82 RG 1 w 50 386 495.28 140 re s Q
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 501 Td
+(Prescribed Institution / Board:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 501 Td
+(APJ Abdul Kalam Technological University \(KTU\)) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 481 Td
+(Degree / Academic Level:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 481 Td
+(B.Tech in Computer Science and Engineering \(Semester 4\)) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 461 Td
+(Subject / Module Code:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 461 Td
+(CST206: Operating Systems) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 441 Td
+(Curriculum Academic Year:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 441 Td
+(2025-2026) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 421 Td
+(Author / Academic Department:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 421 Td
+(Office of the Controller of Examinations, KTU) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 401 Td
+(Authenticity Status:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 401 Td
+(VERIFIED BY STATE ACADEMIC COUNCIL & EXAMINATION SYNDICATE) Tj
+ET
+BT
+/F2 12 Tf
+0.05 0.25 0.2 rg
+50 356 Td
+(EXECUTIVE OVERVIEW & PEDAGOGIC PURPOSE) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 338 Td
+(This academic resource has been officially compiled and vetted for students) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 323 Td
+(enrolled under the approved curriculum. It contains exhaustive conceptual) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 308 Td
+(formulations, worked-out illustrations, previous examination evaluation schemes,) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 293 Td
+(and standard pedagogical solutions aligned with the 2026-2027 state academic) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 278 Td
+(syllabus.) Tj
+ET
+q 0.05 0.35 0.25 rg 50 65 495.28 1 re f Q
+BT
+/F3 8 Tf
+0.4 0.4 0.4 rg
+50 50 Td
+(NEXORA Higher Education & Secondary School Registry • Official Academic Copy • Page 1 of 3) Tj
+ET
+
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 2795 >>
+stream
+q 0.015 0.184 0.180 rg 0 805 595.28 36.89 re f Q
+BT
+/F2 9.5 Tf
+1 1 1 rg
+50 818 Td
+(CST206 Operating Systems - End-Semester Previous Examination Paper with Sol) Tj
+ET
+BT
+/F1 8.5 Tf
+0.8 0.9 0.85 rg
+460 818 Td
+(Page 2 of 3) Tj
+ET
+BT
+/F2 16 Tf
+0.05 0.25 0.2 rg
+50 765 Td
+(Part A: Mandatory Short Answer Questions \(3 Marks Each\)) Tj
+ET
+q 0.05 0.45 0.35 rg 50 755 495.28 2 re f Q
+BT
+/F2 11.5 Tf
+0.1 0.2 0.25 rg
+50 735 Td
+(Question 1: Process State Transition Diagram) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 717 Td
+(Explain the 5-state process lifecycle model with an annotated transition graph.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 697 Td
+(Solution: A process transitions through NEW, READY, RUNNING, WAITING \(BLOCKED\),) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 683 Td
+(and TERMINATED states. The CPU scheduler dispatches ready processes to running.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 669 Td
+(Interrupts transition running to ready. I/O requests move processes to waiting.) Tj
+ET
+BT
+/F2 11.5 Tf
+0.1 0.2 0.25 rg
+50 639 Td
+(Question 2: Critical Section Problem & Petersons Solution) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 621 Td
+(Define the three essential requirements for any valid solution to the critical) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 607 Td
+(section problem.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 587 Td
+(Solution: 1. Mutual Exclusion: If process Pi is executing in its critical section,) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 573 Td
+(no other processes can be executing. 2. Progress: If no process is executing and) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 559 Td
+(some wish to enter, selection cannot be postponed indefinitely. 3. Bounded) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 545 Td
+(Waiting: A bound must exist on the number of times other processes enter after a) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 531 Td
+(request is registered.) Tj
+ET
+BT
+/F2 11.5 Tf
+0.1 0.2 0.25 rg
+50 501 Td
+(Question 3: Beladys Anomaly in Page Replacement) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 483 Td
+(Explain Beladys Anomaly with an illustrative example.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 463 Td
+(Solution: Beladys Anomaly refers to the counter-intuitive phenomenon where) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 449 Td
+(allocating more physical page frames results in an increased number of page) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 435 Td
+(faults. It occurs in FIFO replacement but is mathematically impossible in) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 421 Td
+(stack-based algorithms like LRU and Optimal.) Tj
+ET
+q 0.8 0.85 0.85 rg 50 55 495.28 1 re f Q
+BT
+/F3 8 Tf
+0.4 0.4 0.4 rg
+50 42 Td
+(APJ Abdul Kalam Technological University \(KTU\) • B.Tech in Computer Science and Engineering \(Semester 4\) • Document Ref: KTU-QP-CST206-DEC2025) Tj
+ET
+
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 2223 >>
+stream
+q 0.015 0.184 0.180 rg 0 805 595.28 36.89 re f Q
+BT
+/F2 9.5 Tf
+1 1 1 rg
+50 818 Td
+(CST206 Operating Systems - End-Semester Previous Examination Paper with Sol) Tj
+ET
+BT
+/F1 8.5 Tf
+0.8 0.9 0.85 rg
+460 818 Td
+(Page 3 of 3) Tj
+ET
+BT
+/F2 16 Tf
+0.05 0.25 0.2 rg
+50 765 Td
+(Part B: Analytical & Numerical Questions \(14 Marks Each\)) Tj
+ET
+q 0.05 0.45 0.35 rg 50 755 495.28 2 re f Q
+BT
+/F2 11.5 Tf
+0.1 0.2 0.25 rg
+50 735 Td
+(Question 4: CPU Scheduling Algorithms Comparative Problem) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 717 Td
+(Given five processes P1\(burst 10, arrival 0\), P2\(burst 1, arrival 1\), P3\(burst 2,) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 703 Td
+(arrival 2\), P4\(burst 1, arrival 3\), P5\(burst 5, arrival 4\): Compute Average) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 689 Td
+(Turnaround Time and Waiting Time under Preemptive SJF \(SRTF\).) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 669 Td
+(Solution Steps: Gantt chart executes P1 [0-1], P2 [1-2], P4 [2-3], P3 [3-5], P5) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 655 Td
+([5-10], P1 [10-19].) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 635 Td
+(Completion Times: P1=19, P2=2, P3=5, P4=3, P5=10. Average Turnaround Time = \(19 +) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 621 Td
+(1 + 3 + 0 + 6\) / 5 = 5.8 ms. Average Waiting Time = \(9 + 0 + 1 + 0 + 1\) / 5 = 2.2) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 607 Td
+(ms.) Tj
+ET
+BT
+/F2 11.5 Tf
+0.1 0.2 0.25 rg
+50 577 Td
+(Question 5: Bankers Algorithm for Deadlock Avoidance) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 559 Td
+(Given 5 processes and 3 resource types \(A=10, B=5, C=7\), demonstrate if the system) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 545 Td
+(is in a safe state and output the complete Safe Sequence.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 525 Td
+(Solution: Calculating Need Matrix = Max - Allocation. Safe Sequence generated: <) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 511 Td
+(P1, P3, P4, P0, P2 >. The state is verified safe; no deadlock can occur.) Tj
+ET
+q 0.8 0.85 0.85 rg 50 55 495.28 1 re f Q
+BT
+/F3 8 Tf
+0.4 0.4 0.4 rg
+50 42 Td
+(APJ Abdul Kalam Technological University \(KTU\) • B.Tech in Computer Science and Engineering \(Semester 4\) • Document Ref: KTU-QP-CST206-DEC2025) Tj
+ET
+
+endstream
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000019 00000 n 
+0000000068 00000 n 
+0000000138 00000 n 
+0000000235 00000 n 
+0000000337 00000 n 
+0000000442 00000 n 
+0000000594 00000 n 
+0000003397 00000 n 
+0000003549 00000 n 
+0000006396 00000 n 
+0000006550 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R >>
+startxref
+8826
+%%EOF

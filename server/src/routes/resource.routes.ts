@@ -1,4 +1,6 @@
 import { Router, Request, Response } from 'express';
+import path from 'path';
+import fs from 'fs';
 import prisma from '../db';
 import { requireAuth, requireRole, AuthRequest } from '../middleware/auth';
 import { logAuditEvent } from '../middleware/audit';
@@ -110,6 +112,85 @@ router.get('/:id', async (req: Request, res: Response): Promise<void> => {
     res.json({ success: true, data: resource });
   } catch (err: any) {
     res.status(500).json({ success: false, message: 'Resource not found or inaccessible.' });
+  }
+});
+
+// Download original academic material file
+router.get('/:id/download', async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { id } = req.params;
+    const resource = await prisma.learningMaterial.findUnique({
+      where: { id },
+    });
+
+    if (!resource) {
+      res.status(404).json({ success: false, message: 'Study resource not found.' });
+      return;
+    }
+
+    // Increment download count
+    await prisma.learningMaterial.update({
+      where: { id },
+      data: { downloadCount: { increment: 1 } },
+    });
+
+    // Resolve file path
+    const uploadsDir = path.resolve(__dirname, '../../uploads');
+    let relPath = resource.fileUrl || '/uploads/sample.pdf';
+    if (relPath.startsWith('/uploads/')) {
+      relPath = relPath.replace('/uploads/', '');
+    }
+    let filePath = path.join(uploadsDir, relPath);
+
+    if (!fs.existsSync(filePath)) {
+      filePath = path.join(uploadsDir, 'sample.pdf');
+    }
+
+    if (!fs.existsSync(filePath)) {
+      res.status(404).json({ success: false, message: 'Resource file is currently unavailable.' });
+      return;
+    }
+
+    const safeTitle = (resource.title || 'study-resource').replace(/[^a-zA-Z0-9_\-]/g, '_');
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename="${safeTitle}.pdf"`);
+    res.sendFile(filePath);
+  } catch (err: any) {
+    console.error('Download error:', err);
+    res.status(500).json({ success: false, message: 'Failed to process download.' });
+  }
+});
+
+// Inline Preview for PDF materials
+router.get('/:id/preview', async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { id } = req.params;
+    const resource = await prisma.learningMaterial.findUnique({
+      where: { id },
+    });
+
+    if (!resource) {
+      res.status(404).json({ success: false, message: 'Study resource not found.' });
+      return;
+    }
+
+    const uploadsDir = path.resolve(__dirname, '../../uploads');
+    let relPath = resource.fileUrl || '/uploads/sample.pdf';
+    if (relPath.startsWith('/uploads/')) {
+      relPath = relPath.replace('/uploads/', '');
+    }
+    let filePath = path.join(uploadsDir, relPath);
+
+    if (!fs.existsSync(filePath)) {
+      filePath = path.join(uploadsDir, 'sample.pdf');
+    }
+
+    const safeTitle = (resource.title || 'study-resource').replace(/[^a-zA-Z0-9_\-]/g, '_');
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `inline; filename="${safeTitle}.pdf"`);
+    res.sendFile(filePath);
+  } catch (err: any) {
+    res.status(500).json({ success: false, message: 'Failed to render preview.' });
   }
 });
 

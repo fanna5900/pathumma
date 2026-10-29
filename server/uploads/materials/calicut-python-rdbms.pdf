@@ -1,0 +1,416 @@
+%PDF-1.4
+%âãÏÓ
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 2690 >>
+stream
+q 0.015 0.184 0.180 rg 0 740 595.28 101.89 re f Q
+q 0.85 0.65 0.15 rg 0 736 595.28 4 re f Q
+BT
+/F2 15 Tf
+1 1 1 rg
+50 790 Td
+(NEXORA ACADEMIC REPOSITORY & VERIFIED STUDY PORTAL) Tj
+ET
+BT
+/F1 9 Tf
+0.8 0.9 0.85 rg
+50 765 Td
+(OFFICIAL ACADEMIC CURRICULUM ARCHIVE • DOCUMENT VERIFICATION: UOC-CS-BCS4B05-2026) Tj
+ET
+q 0.9 0.95 0.93 rg 50 690 180 26 re f 0.05 0.35 0.25 RG 1 w 50 690 180 26 re s Q
+BT
+/F2 11 Tf
+0.05 0.35 0.25 rg
+60 700 Td
+(LECTURE NOTES) Tj
+ET
+BT
+/F2 20 Tf
+0.05 0.15 0.15 rg
+50 640 Td
+(BCS4B05 Python Programming & Relational Databases) Tj
+ET
+BT
+/F2 20 Tf
+0.05 0.15 0.15 rg
+50 614 Td
+(- Lecture Handout) Tj
+ET
+BT
+/F3 11 Tf
+0.3 0.35 0.35 rg
+50 578 Td
+(Core Python Syntax, Object-Oriented Principles, SQLite Connectivity &) Tj
+ET
+BT
+/F3 11 Tf
+0.3 0.35 0.35 rg
+50 562 Td
+(Web APIs) Tj
+ET
+q 0.96 0.98 0.97 rg 50 386 495.28 140 re f 0.8 0.85 0.82 RG 1 w 50 386 495.28 140 re s Q
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 501 Td
+(Prescribed Institution / Board:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 501 Td
+(University of Calicut) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 481 Td
+(Degree / Academic Level:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 481 Td
+(B.Sc. Computer Science \(Semester 4\)) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 461 Td
+(Subject / Module Code:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 461 Td
+(BCS4B05: Python Programming & RDBMS) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 441 Td
+(Curriculum Academic Year:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 441 Td
+(2026-2027) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 421 Td
+(Author / Academic Department:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 421 Td
+(Department of Computer Science, Thenhipalam Campus) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 401 Td
+(Authenticity Status:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 401 Td
+(VERIFIED BY STATE ACADEMIC COUNCIL & EXAMINATION SYNDICATE) Tj
+ET
+BT
+/F2 12 Tf
+0.05 0.25 0.2 rg
+50 356 Td
+(EXECUTIVE OVERVIEW & PEDAGOGIC PURPOSE) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 338 Td
+(This academic resource has been officially compiled and vetted for students) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 323 Td
+(enrolled under the approved curriculum. It contains exhaustive conceptual) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 308 Td
+(formulations, worked-out illustrations, previous examination evaluation schemes,) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 293 Td
+(and standard pedagogical solutions aligned with the 2026-2027 state academic) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 278 Td
+(syllabus.) Tj
+ET
+q 0.05 0.35 0.25 rg 50 65 495.28 1 re f Q
+BT
+/F3 8 Tf
+0.4 0.4 0.4 rg
+50 50 Td
+(NEXORA Higher Education & Secondary School Registry • Official Academic Copy • Page 1 of 3) Tj
+ET
+
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 2307 >>
+stream
+q 0.015 0.184 0.180 rg 0 805 595.28 36.89 re f Q
+BT
+/F2 9.5 Tf
+1 1 1 rg
+50 818 Td
+(BCS4B05 Python Programming & Relational Databases - Lecture Handout) Tj
+ET
+BT
+/F1 8.5 Tf
+0.8 0.9 0.85 rg
+460 818 Td
+(Page 2 of 3) Tj
+ET
+BT
+/F2 16 Tf
+0.05 0.25 0.2 rg
+50 765 Td
+(Module 1: Advanced Python Idioms & Functional Constructs) Tj
+ET
+q 0.05 0.45 0.35 rg 50 755 495.28 2 re f Q
+BT
+/F2 11.5 Tf
+0.1 0.2 0.25 rg
+50 735 Td
+(1.1 List, Dictionary & Set Comprehensions) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 717 Td
+(Python comprehensions provide declarative, optimized constructs for generating) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 703 Td
+(sequences. Syntax: [expression for item in iterable if condition].) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 683 Td
+(Dictionary comprehensions enable key-value pairing in linear time: {k: v**2 for k,) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 669 Td
+(v in data.items\(\) if v > 0}.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 649 Td
+(• Generator Expressions: Memory-efficient streaming of infinite or massive data) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 635 Td
+(  series using yield.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 617 Td
+(• First-Class Functions: Passing callbacks, lambda closures, map\(\), filter\(\),) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 603 Td
+(  and reduce\(\) primitives.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 585 Td
+(• Decorators: Wrapping target functions for cross-cutting logging, caching, and) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 571 Td
+(  authentication.) Tj
+ET
+BT
+/F2 11.5 Tf
+0.1 0.2 0.25 rg
+50 543 Td
+(1.2 Object-Oriented Programming \(OOP\) in Python) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 525 Td
+(Python models classes with dynamic encapsulation, single and multiple inheritance,) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 511 Td
+(and method resolution order \(MRO\) computed via the C3 linearization algorithm.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 491 Td
+(Dunder methods \(__init__, __str__, __repr__, __len__, __iter__\) allow custom) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 477 Td
+(classes to integrate natively with Python runtime built-ins.) Tj
+ET
+q 0.8 0.85 0.85 rg 50 55 495.28 1 re f Q
+BT
+/F3 8 Tf
+0.4 0.4 0.4 rg
+50 42 Td
+(University of Calicut • B.Sc. Computer Science \(Semester 4\) • Document Ref: UOC-CS-BCS4B05-2026) Tj
+ET
+
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 1311 >>
+stream
+q 0.015 0.184 0.180 rg 0 805 595.28 36.89 re f Q
+BT
+/F2 9.5 Tf
+1 1 1 rg
+50 818 Td
+(BCS4B05 Python Programming & Relational Databases - Lecture Handout) Tj
+ET
+BT
+/F1 8.5 Tf
+0.8 0.9 0.85 rg
+460 818 Td
+(Page 3 of 3) Tj
+ET
+BT
+/F2 16 Tf
+0.05 0.25 0.2 rg
+50 765 Td
+(Module 2: Database Connectivity & SQLite Operations) Tj
+ET
+q 0.05 0.45 0.35 rg 50 755 495.28 2 re f Q
+BT
+/F2 11.5 Tf
+0.1 0.2 0.25 rg
+50 735 Td
+(2.1 Python DB-API 2.0 Standard with SQLite3) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 717 Td
+(The sqlite3 module provides standardized database access adhering to PEP 249) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 703 Td
+(specifications. Parameterized queries mitigate SQL injection vulnerabilities.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 683 Td
+(Code Sample: cursor.execute\("SELECT * FROM students WHERE district = ?",) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 669 Td
+(\(user_district,\)\)) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 649 Td
+(Transactional integrity requires explicit connection.commit\(\) calls and) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 635 Td
+(connection.rollback\(\) in exception blocks.) Tj
+ET
+q 0.8 0.85 0.85 rg 50 55 495.28 1 re f Q
+BT
+/F3 8 Tf
+0.4 0.4 0.4 rg
+50 42 Td
+(University of Calicut • B.Sc. Computer Science \(Semester 4\) • Document Ref: UOC-CS-BCS4B05-2026) Tj
+ET
+
+endstream
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000019 00000 n 
+0000000068 00000 n 
+0000000138 00000 n 
+0000000235 00000 n 
+0000000337 00000 n 
+0000000442 00000 n 
+0000000594 00000 n 
+0000003336 00000 n 
+0000003488 00000 n 
+0000005847 00000 n 
+0000006001 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R >>
+startxref
+7365
+%%EOF

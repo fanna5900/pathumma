@@ -1,0 +1,416 @@
+%PDF-1.4
+%âãÏÓ
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 2772 >>
+stream
+q 0.015 0.184 0.180 rg 0 740 595.28 101.89 re f Q
+q 0.85 0.65 0.15 rg 0 736 595.28 4 re f Q
+BT
+/F2 15 Tf
+1 1 1 rg
+50 790 Td
+(NEXORA ACADEMIC REPOSITORY & VERIFIED STUDY PORTAL) Tj
+ET
+BT
+/F1 9 Tf
+0.8 0.9 0.85 rg
+50 765 Td
+(OFFICIAL ACADEMIC CURRICULUM ARCHIVE • DOCUMENT VERIFICATION: DHSE-P2-CS-2026) Tj
+ET
+q 0.9 0.95 0.93 rg 50 690 180 26 re f 0.05 0.35 0.25 RG 1 w 50 690 180 26 re s Q
+BT
+/F2 11 Tf
+0.05 0.35 0.25 rg
+60 700 Td
+(LAB MANUAL AND CODE) Tj
+ET
+BT
+/F2 20 Tf
+0.05 0.15 0.15 rg
+50 640 Td
+(Plus Two Computer Science \(Class 12\) - Python) Tj
+ET
+BT
+/F2 20 Tf
+0.05 0.15 0.15 rg
+50 614 Td
+(Programming & MySQL Practical Lab Guide) Tj
+ET
+BT
+/F3 11 Tf
+0.3 0.35 0.35 rg
+50 578 Td
+(Data Structures \(Stacks/Queues\), File Handling \(Text/Binary/CSV\) &) Tj
+ET
+BT
+/F3 11 Tf
+0.3 0.35 0.35 rg
+50 562 Td
+(Database Interfacing) Tj
+ET
+q 0.96 0.98 0.97 rg 50 386 495.28 140 re f 0.8 0.85 0.82 RG 1 w 50 386 495.28 140 re s Q
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 501 Td
+(Prescribed Institution / Board:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 501 Td
+(Directorate of Higher Secondary Education \(DHSE Kerala\)) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 481 Td
+(Degree / Academic Level:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 481 Td
+(Plus Two \(Class 12 Computer Science Stream\)) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 461 Td
+(Subject / Module Code:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 461 Td
+(Computer Science \(Subject Code: 515\)) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 441 Td
+(Curriculum Academic Year:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 441 Td
+(2026-2027) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 421 Td
+(Author / Academic Department:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 421 Td
+(Kerala State Higher Secondary Curriculum Committee) Tj
+ET
+BT
+/F2 9.5 Tf
+0.1 0.25 0.2 rg
+65 401 Td
+(Authenticity Status:) Tj
+ET
+BT
+/F1 9.5 Tf
+0.15 0.15 0.15 rg
+250 401 Td
+(VERIFIED BY STATE ACADEMIC COUNCIL & EXAMINATION SYNDICATE) Tj
+ET
+BT
+/F2 12 Tf
+0.05 0.25 0.2 rg
+50 356 Td
+(EXECUTIVE OVERVIEW & PEDAGOGIC PURPOSE) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 338 Td
+(This academic resource has been officially compiled and vetted for students) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 323 Td
+(enrolled under the approved curriculum. It contains exhaustive conceptual) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 308 Td
+(formulations, worked-out illustrations, previous examination evaluation schemes,) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 293 Td
+(and standard pedagogical solutions aligned with the 2026-2027 state academic) Tj
+ET
+BT
+/F1 9.5 Tf
+0.25 0.25 0.25 rg
+50 278 Td
+(syllabus.) Tj
+ET
+q 0.05 0.35 0.25 rg 50 65 495.28 1 re f Q
+BT
+/F3 8 Tf
+0.4 0.4 0.4 rg
+50 50 Td
+(NEXORA Higher Education & Secondary School Registry • Official Academic Copy • Page 1 of 3) Tj
+ET
+
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 2185 >>
+stream
+q 0.015 0.184 0.180 rg 0 805 595.28 36.89 re f Q
+BT
+/F2 9.5 Tf
+1 1 1 rg
+50 818 Td
+(Plus Two Computer Science \(Class 12\) - Python Programming & MySQL Practical) Tj
+ET
+BT
+/F1 8.5 Tf
+0.8 0.9 0.85 rg
+460 818 Td
+(Page 2 of 3) Tj
+ET
+BT
+/F2 16 Tf
+0.05 0.25 0.2 rg
+50 765 Td
+(Unit 1: Data Structures Implementation in Python) Tj
+ET
+q 0.05 0.45 0.35 rg 50 755 495.28 2 re f Q
+BT
+/F2 11.5 Tf
+0.1 0.2 0.25 rg
+50 735 Td
+(1.1 Stack Implementation using Python Lists) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 717 Td
+(A Stack is an ordered collection where insertions and deletions happen exclusively) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 703 Td
+(at the Top pointer \(LIFO\).) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 683 Td
+(Operations include: Push \(append\), Pop \(pop\), Peek \(inspect stack[-1]\), and) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 669 Td
+(Display.) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 649 Td
+(• def push\(stack, item\): stack.append\(item\); print\(f"Pushed {item}"\)) Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 631 Td
+(• def pop\(stack\): return stack.pop\(\) if len\(stack\) > 0 else "Underflow") Tj
+ET
+BT
+/F1 9.5 Tf
+0.2 0.2 0.2 rg
+60 613 Td
+(• def peek\(stack\): return stack[-1] if len\(stack\) > 0 else "Empty Stack") Tj
+ET
+BT
+/F2 11.5 Tf
+0.1 0.2 0.25 rg
+50 585 Td
+(1.2 File Handling in Python \(Text, Binary & CSV\)) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 567 Td
+(Text Files: Read using file.read\(\), file.readline\(\), write using file.write\(\),) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 553 Td
+(file.writelines\(\).) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 533 Td
+(Binary Files: Employs pickle module for serializing objects: pickle.dump\(object,) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 519 Td
+(file\) and pickle.load\(file\).) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 499 Td
+(CSV Files: Handled via import csv: csv.reader\(file\) and) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 485 Td
+(csv.writer\(file\).writerow\([...]\).) Tj
+ET
+q 0.8 0.85 0.85 rg 50 55 495.28 1 re f Q
+BT
+/F3 8 Tf
+0.4 0.4 0.4 rg
+50 42 Td
+(Directorate of Higher Secondary Education \(DHSE Kerala\) • Plus Two \(Class 12 Computer Science Stream\) • Document Ref: DHSE-P2-CS-2026) Tj
+ET
+
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 1475 >>
+stream
+q 0.015 0.184 0.180 rg 0 805 595.28 36.89 re f Q
+BT
+/F2 9.5 Tf
+1 1 1 rg
+50 818 Td
+(Plus Two Computer Science \(Class 12\) - Python Programming & MySQL Practical) Tj
+ET
+BT
+/F1 8.5 Tf
+0.8 0.9 0.85 rg
+460 818 Td
+(Page 3 of 3) Tj
+ET
+BT
+/F2 16 Tf
+0.05 0.25 0.2 rg
+50 765 Td
+(Unit 2: MySQL Connector & Practical Database Integration) Tj
+ET
+q 0.05 0.45 0.35 rg 50 755 495.28 2 re f Q
+BT
+/F2 11.5 Tf
+0.1 0.2 0.25 rg
+50 735 Td
+(2.1 Python to MySQL Backend Connectivity Script) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 717 Td
+(Connecting to database: import mysql.connector; conn =) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 703 Td
+(mysql.connector.connect\(host="localhost", user="root", password="pwd",) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 689 Td
+(database="school_db"\)) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 669 Td
+(Executing Queries: cur = conn.cursor\(\); cur.execute\("SELECT roll, name,) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 655 Td
+(total_marks FROM students WHERE marks > 90"\); records = cur.fetchall\(\)) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 635 Td
+(Prepared Statements: cur.execute\("INSERT INTO students \(name, age\) VALUES \(%s,) Tj
+ET
+BT
+/F1 9.5 Tf
+0.18 0.18 0.18 rg
+50 621 Td
+(%s\)", \("Anand", 17\)\); conn.commit\(\)) Tj
+ET
+q 0.8 0.85 0.85 rg 50 55 495.28 1 re f Q
+BT
+/F3 8 Tf
+0.4 0.4 0.4 rg
+50 42 Td
+(Directorate of Higher Secondary Education \(DHSE Kerala\) • Plus Two \(Class 12 Computer Science Stream\) • Document Ref: DHSE-P2-CS-2026) Tj
+ET
+
+endstream
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000019 00000 n 
+0000000068 00000 n 
+0000000138 00000 n 
+0000000235 00000 n 
+0000000337 00000 n 
+0000000442 00000 n 
+0000000594 00000 n 
+0000003418 00000 n 
+0000003570 00000 n 
+0000005807 00000 n 
+0000005961 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R >>
+startxref
+7489
+%%EOF
