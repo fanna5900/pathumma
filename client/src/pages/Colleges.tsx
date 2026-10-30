@@ -298,52 +298,62 @@ export const Colleges: React.FC = () => {
               return (
                 <div
                   key={college.id}
-                  className="rounded-3xl glass-panel bg-forest-900/80 p-6 flex flex-col justify-between border border-emerald-900/60 relative group hover:border-emerald-500/50 transition-all shadow-xl"
+                  className="rounded-3xl glass-panel bg-forest-900/80 overflow-hidden flex flex-col justify-between border border-emerald-900/60 relative group hover:border-emerald-500/50 transition-all shadow-xl"
                 >
                   <div>
-                    {/* Header with Type & Bookmark */}
-                    <div className="flex items-start justify-between gap-3 mb-3">
-                      <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800/60">
-                        {college.institutionType}
-                      </span>
+                    {/* Visual Campus Banner */}
+                    <div className="relative h-44 overflow-hidden">
+                      <img
+                        src={college.bannerUrl || 'https://images.unsplash.com/photo-1562774053-701939374585?w=800&auto=format&fit=crop&q=80'}
+                        alt={college.name}
+                        className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-forest-900/95 via-forest-900/40 to-transparent"></div>
+                      <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                        <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-forest-950/80 backdrop-blur-md text-emerald-300 border border-emerald-800/60 shadow-sm">
+                          {college.institutionType}
+                        </span>
 
-                      <div className="flex items-center space-x-2">
-                        {college.nirfRank && (
-                          <span className="text-[10px] font-bold text-gold-300 bg-amber-950/60 border border-amber-800/50 px-2 py-0.5 rounded-lg">
-                            NIRF #{college.nirfRank}
-                          </span>
-                        )}
-                        <button
-                          onClick={(e) => toggleSave(college.id, e)}
-                          className="p-1.5 rounded-lg bg-forest-900 hover:bg-forest-800 text-slate-400 hover:text-white transition-colors"
-                          title={isSaved ? 'Remove from Saved' : 'Save College'}
-                        >
-                          {isSaved ? (
-                            <BookmarkCheck className="w-4 h-4 text-emerald-400" />
-                          ) : (
-                            <Bookmark className="w-4 h-4" />
+                        <div className="flex items-center space-x-2">
+                          {college.nirfRank && (
+                            <span className="text-[10px] font-bold text-gold-300 bg-amber-950/80 backdrop-blur-md border border-amber-800/50 px-2 py-0.5 rounded-lg shadow-sm">
+                              NIRF #{college.nirfRank}
+                            </span>
                           )}
-                        </button>
+                          <button
+                            onClick={(e) => toggleSave(college.id, e)}
+                            className="p-1.5 rounded-lg bg-forest-950/80 backdrop-blur-md hover:bg-forest-800 text-slate-300 hover:text-white transition-colors border border-emerald-800/40"
+                            title={isSaved ? 'Remove from Saved' : 'Save College'}
+                          >
+                            {isSaved ? (
+                              <BookmarkCheck className="w-4 h-4 text-emerald-400" />
+                            ) : (
+                              <Bookmark className="w-4 h-4" />
+                            )}
+                          </button>
+                        </div>
                       </div>
                     </div>
 
-                    {/* College Title & Location */}
-                    <h3 className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-2">
-                      {college.name}
-                    </h3>
+                    <div className="p-6">
+                      {/* College Title & Location */}
+                      <h3 className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-2">
+                        {college.name}
+                      </h3>
 
-                    <p className="text-xs text-slate-400 flex items-center gap-1.5 mt-1">
-                      <MapPin className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
-                      <span>{college.city}, {college.state}</span>
-                    </p>
+                      <p className="text-xs text-slate-400 flex items-center gap-1.5 mt-1">
+                        <MapPin className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                        <span>{college.city}, {college.state}</span>
+                      </p>
 
-                    {/* Affiliated University */}
-                    {college.affiliation && (
-                      <div className="mt-2 text-[11px] text-slate-300 flex items-center gap-1">
-                        <GraduationCap className="w-3.5 h-3.5 text-gold-400 flex-shrink-0" />
-                        <span className="truncate">{college.affiliation}</span>
-                      </div>
-                    )}
+                      {/* Affiliated University */}
+                      {college.affiliation && (
+                        <div className="mt-2 text-[11px] text-slate-300 flex items-center gap-1">
+                          <GraduationCap className="w-3.5 h-3.5 text-gold-400 flex-shrink-0" />
+                          <span className="truncate">{college.affiliation}</span>
+                        </div>
+                      )}
 
                     {/* Verified Gazette Badge */}
                     <div className="mt-3 flex items-center gap-1.5 text-[11px] text-emerald-300 bg-emerald-950/50 border border-emerald-800/40 px-2.5 py-1 rounded-xl">
@@ -378,6 +388,7 @@ export const Colleges: React.FC = () => {
                       </div>
                     )}
                   </div>
+                </div>
 
                   {/* Actions */}
                   <div className="pt-5 mt-4 border-t border-emerald-950 space-y-2">

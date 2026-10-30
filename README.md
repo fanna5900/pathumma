@@ -1,5 +1,9 @@
 # NEXORA — Full-Stack Education & Academic Portal
 
+<p align="center">
+  <img src="assets/nexora-banner.svg" alt="NEXORA Academic Ecosystem Banner" width="100%" />
+</p>
+
 A modern, production-ready, full-stack education platform built with React, TypeScript, Vite, Tailwind CSS, Node.js, Express.js, SQLite, and Prisma ORM.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](LICENSE)

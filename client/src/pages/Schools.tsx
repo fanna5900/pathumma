@@ -314,40 +314,52 @@ export const Schools: React.FC = () => {
               return (
                 <div
                   key={school.id}
-                  className="rounded-3xl glass-panel p-6 border border-emerald-900/60 flex flex-col justify-between hover:border-emerald-500/40 transition-all group relative overflow-hidden"
+                  className="rounded-3xl glass-panel bg-forest-900/80 overflow-hidden border border-emerald-900/60 flex flex-col justify-between hover:border-emerald-500/40 transition-all group relative shadow-xl"
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800/60">
+                  <div>
+                    {/* Visual Campus Banner */}
+                    <div className="relative h-44 overflow-hidden">
+                      <img
+                        src={school.bannerUrl || 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&auto=format&fit=crop&q=80'}
+                        alt={school.name}
+                        className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-forest-900/95 via-forest-900/40 to-transparent"></div>
+                      <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                        <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-forest-950/80 backdrop-blur-md text-emerald-300 border border-emerald-800/60 shadow-sm">
                           {school.institutionType}
                         </span>
-                        <span className="ml-2 text-[10px] text-slate-400">
-                          Est. {school.establishedYear || 'N/A'}
-                        </span>
+
+                        <div className="flex items-center space-x-2">
+                          <span className="text-[10px] text-slate-300 bg-forest-950/80 backdrop-blur-md border border-emerald-800/40 px-2 py-0.5 rounded-lg">
+                            Est. {school.establishedYear || 'N/A'}
+                          </span>
+                          <button
+                            onClick={(e) => toggleSave(school.id, e)}
+                            className="p-1.5 rounded-lg bg-forest-950/80 backdrop-blur-md hover:bg-forest-800 text-slate-300 hover:text-white transition-colors border border-emerald-800/40"
+                            title={isSaved ? 'Saved School' : 'Save School'}
+                          >
+                            {isSaved ? (
+                              <BookmarkCheck className="w-4 h-4 text-emerald-400" />
+                            ) : (
+                              <Bookmark className="w-4 h-4" />
+                            )}
+                          </button>
+                        </div>
                       </div>
-                      <button
-                        onClick={(e) => toggleSave(school.id, e)}
-                        className="text-slate-400 hover:text-emerald-400 transition-colors"
-                        title={isSaved ? 'Saved School' : 'Save School'}
-                      >
-                        {isSaved ? (
-                          <BookmarkCheck className="w-5 h-5 text-emerald-400" />
-                        ) : (
-                          <Bookmark className="w-5 h-5" />
-                        )}
-                      </button>
                     </div>
 
-                    <div>
-                      <h3 className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-2">
-                        <Link to={`/colleges/${school.id}`}>{school.name}</Link>
-                      </h3>
-                      <p className="flex items-center gap-1.5 text-xs text-slate-300 mt-1.5">
-                        <MapPin className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
-                        <span className="truncate">{school.location}</span>
-                      </p>
-                    </div>
+                    <div className="p-6 space-y-4">
+                      <div>
+                        <h3 className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-2">
+                          <Link to={`/colleges/${school.id}`}>{school.name}</Link>
+                        </h3>
+                        <p className="flex items-center gap-1.5 text-xs text-slate-300 mt-1.5">
+                          <MapPin className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                          <span className="truncate">{school.location}</span>
+                        </p>
+                      </div>
 
                     {/* Affiliation / Board */}
                     {school.affiliation && (
@@ -390,6 +402,7 @@ export const Schools: React.FC = () => {
                       </p>
                     )}
                   </div>
+                </div>
 
                   {/* Card Footer Actions */}
                   <div className="pt-4 mt-4 border-t border-emerald-950 flex items-center justify-between gap-3">
